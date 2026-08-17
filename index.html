@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A4 Portrait Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="document">
+      <div class="header">
+        <p>
+          Jordi 
+          <br/>
+          Peralta
+        </h1>
+      </div>
+      <div class="content">
+        <div class="history">
+          <div class="history-header">
+            <div class="history-header-section header-experience">
+              <i data-lucide="pickaxe" aria-hidden="true"></i>
+              <span>Experience</span>
+            </div>
+            <div class="history-header-section header-education">
+              <span>Education</span>
+              <i data-lucide="graduation-cap" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="history-main">
+            <div class="history-main-left">
+              <div class="experience-timeline" aria-label="Professional experience timeline"></div>
+              <div class="experience-details"></div>
+            </div>
+            <div class="history-main-centre">
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+              <div class="history-divider"></div>
+            </div>
+            <div class="history-main-right">
+              <div class="education-timeline" aria-label="Education timeline"></div>
+              <div class="education-details"></div>
+            </div>
+          </div>
+        </div>
+        <div class="experience"></div>
+      </div>
+    </main>
+
+    <button class="print-button" type="button" onclick="window.print()">
+      Save as PDF
+    </button>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
