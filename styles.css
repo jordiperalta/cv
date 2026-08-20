@@ -55,6 +55,7 @@ body {
 }
 
 .document {
+  position: relative;
   width: 210mm;
   height: 297mm;
   margin: 12mm auto;
@@ -68,26 +69,107 @@ body {
 
 .header {
   flex: 0 0 12.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   color: #ffffff;
   background-image: linear-gradient(125deg, #485e88 0%, #485e88 17.5%, #ffffff 41%);
+}
 
-  p {
-    margin: 0;
-    padding: .5rem .75rem;
-    line-height: 1.125;
-    font-size: 3.25rem;
-    font-weight: 300;
+.header p {
+  margin: 0;
+  padding: .5rem .75rem;
+  line-height: 1.125;
+  font-size: 3.25rem;
+  font-weight: 300;
+}
+
+.contact {
+  position: absolute;
+  top: 150px;
+  right: 0;
+  width: 235px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.location {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  width: 235px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.contact > div,
+.location > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-icon {
+  flex: 0 0 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #485e88;
+  font-size: 1rem;
+}
+
+.whatsapp-icon {
+  margin: -1px;
+}
+
+.contact > div > span,
+.location > div > span {
+  padding-left: 4px;
+  font-size: .9375rem;
+  font-weight: 400;
+}
+
+.contact > div > span > a {
+  color: #485e88;
+  text-decoration: none;
+}
+
+.location > div > span {
+  line-height: 1.1;
+  color: #cc1931;
+  text-decoration: none;
+}
+
+.location .contact-icon {
+  flex: 0 0 32px;
+  height: 28px;
+  width: 28px;
+  margin: 4px;
+  color: #cc1931;
+}
+
+.header .qr-wrapper {
+  justify-content: flex-end;
+  img {
+    height: 125px;
+    width: 125px;
+    margin: 15px;
   }
 }
 
 .content {
   flex: 0 0 87.5%;
+  min-height: 0;
   display: flex;
   flex-direction: row;
 }
 
 .history {
   flex: 0 0 32.5%;
+  height: calc(100% - 18px);
+  min-height: 0;
   position: relative;
   z-index: 1;
   display: flex;
@@ -96,8 +178,12 @@ body {
 }
 
 .history.history-hover {
-  flex-basis: calc(32.5% + var(--history-hover-swing));
-  margin-right: calc(0px - var(--history-hover-swing));
+  flex-basis: calc(
+    32.5% + var(--history-hover-swing) + var(--history-hover-swing)
+  );
+  margin-right: calc(
+    0px - var(--history-hover-swing) - var(--history-hover-swing)
+  );
   z-index: 3;
 }
 
@@ -147,29 +233,31 @@ body {
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
-  height: 100%;
   background-image: linear-gradient(to bottom, #b8c0d1, #fcfdfe);
 }
 
 .history-hover .history-header {
-  padding-left: calc(var(--history-header-padding-h, 6px) + var(--history-hover-swing));
+  padding: 0 calc(var(--history-header-padding-h, 6px) + var(--history-hover-swing));
 }
+
 .history-hover .history-main {
-  padding-left: var(--history-hover-swing);
+  padding: 0 var(--history-hover-swing);
 }
 
 .history-header, .history-main {
-  transition: padding-left 350ms ease;
+  transition: padding 350ms ease;
 }
 
 .history-main-left {
-  flex: 0 0 calc(50% - 8px);
+  flex: 1 1 0;
+  min-width: 0;
   height: 100%;
   position: relative;
 }
 
 .history-main-right {
-  flex: 0 0 calc(50% - 8px);
+  flex: 1 1 0;
+  min-width: 0;
   height: 100%;
   position: relative;
 }
@@ -209,6 +297,8 @@ body {
 
 .experience {
   flex: 0 0 67.5%;
+  height: calc(100% - 18px);
+  min-height: 0;
   position: relative;
   background-image: linear-gradient(315deg, #b8c0d1 0%,#ffffff 25%);
 }
@@ -353,6 +443,16 @@ body {
   color: #ffffff;
   cursor: pointer;
   font: inherit;
+}
+
+@media screen and (max-width: 559px) {
+  main.document {
+    margin: 0;
+  }
+
+  button.print-button {
+    display: none;
+  }
 }
 
 @media print {
