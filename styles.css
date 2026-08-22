@@ -87,8 +87,7 @@ body {
 .contact {
   position: absolute;
   top: 150px;
-  right: 0;
-  width: 235px;
+  right: 20px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -97,8 +96,7 @@ body {
 .location {
   position: absolute;
   top: 20px;
-  right: 50px;
-  width: 235px;
+  right: 145px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -140,6 +138,7 @@ body {
   line-height: 1.1;
   color: #cc1931;
   text-decoration: none;
+  text-align: right;
 }
 
 .location .contact-icon {
@@ -150,12 +149,14 @@ body {
   color: #cc1931;
 }
 
-.header .qr-wrapper {
-  justify-content: flex-end;
+.header .qr-code {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   img {
     height: 125px;
     width: 125px;
-    margin: 15px;
+    margin: 5px;
   }
 }
 
@@ -168,7 +169,7 @@ body {
 
 .history {
   flex: 0 0 32.5%;
-  height: calc(100% - 18px);
+  height: 100%;
   min-height: 0;
   position: relative;
   z-index: 1;
@@ -297,7 +298,7 @@ body {
 
 .experience {
   flex: 0 0 67.5%;
-  height: calc(100% - 18px);
+  height:100%;
   min-height: 0;
   position: relative;
   background-image: linear-gradient(315deg, #b8c0d1 0%,#ffffff 25%);
