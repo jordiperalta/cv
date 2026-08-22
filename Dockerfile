@@ -1,0 +1,8 @@
+FROM nginx:alpine
+
+COPY index.html styles.css script.js /usr/share/nginx/html/
+COPY assets/ /usr/share/nginx/html/assets/
+COPY data/ /usr/share/nginx/html/data/
+COPY fonts/ /usr/share/nginx/html/fonts/
+
+EXPOSE 80
