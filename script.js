@@ -1,17 +1,23 @@
 // Set the first year shown in the timeline: year, zero-based month, day.
 const timelineStartDate = new Date(); // new Date(2025, 1, 5);
 const timelineStartYear = timelineStartDate.getFullYear();
+// Change this value to control the oldest year displayed on the timeline.
+const timelineOldestYear = 2011;
 const firstFullYearDividerHeight = 12;
 const lastDividerHeight = 4;
 const logarithmicScale = 10;
 const totalDetails = experienceData.length + educationData.length;
 const rainbowColors = createRainbowColors(totalDetails);
-const dividers = [...document.querySelectorAll('.history-divider')];
-const timelineOldestDate = new Date(
-  timelineStartYear - dividers.length + 1,
-  0,
-  1,
-);
+const timelineDividerCount = timelineStartYear - timelineOldestYear + 1;
+const dividerContainer = document.querySelector('.history-main-centre');
+const dividers = Array.from({ length: timelineDividerCount }, () => {
+  const divider = document.createElement('div');
+  divider.className = 'history-divider';
+  return divider;
+});
+
+dividerContainer?.replaceChildren(...dividers);
+const timelineOldestDate = new Date(timelineOldestYear, 0, 1);
 const fullYearDividerCount = Math.max(dividers.length - 1, 1);
 const lastFullYearIndex = Math.max(fullYearDividerCount - 1, 1);
 
@@ -95,6 +101,12 @@ function parseExperienceDate(value) {
 }
 
 function createYearMonthElement(value) {
+  if (value === 'Present') {
+    const dateElement = document.createElement('b');
+    dateElement.textContent = value;
+    return dateElement;
+  }
+
   const date = parseExperienceDate(value);
   const month = date.toLocaleString('en-US', { month: 'short' });
   const dateElement = document.createElement('span');
