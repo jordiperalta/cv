@@ -1,4 +1,4 @@
-const educationData = [
+export const educationData = [
   {
     title: 'Training Capsules: Redis, TypeScript, AWS',
     entity: 'BarcelonActiva Cibernarium',

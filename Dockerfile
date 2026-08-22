@@ -1,8 +1,15 @@
+FROM node:20-alpine AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
 FROM nginx:alpine
 
-COPY index.html styles.css script.js /usr/share/nginx/html/
-COPY assets/ /usr/share/nginx/html/assets/
-COPY data/ /usr/share/nginx/html/data/
-COPY fonts/ /usr/share/nginx/html/fonts/
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80

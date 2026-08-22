@@ -1,4 +1,4 @@
-const experienceData = [
+export const experienceData = [
   {
     title: 'Fullstack Developer, DevOps',
     entity: 'Alma Medical Imaging',
