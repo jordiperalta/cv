@@ -15,7 +15,8 @@
       <div class="header">
         <div>
           <p>
-            Jordi<br/>Peralta
+            <span data-personal="first-name"></span><br />
+            <span data-personal="last-name"></span>
           </p>
         </div>
         <div class="qr-code">
@@ -50,7 +51,10 @@
       </div>
       <div class="location">
         <div>
-          <span>Barcelona <br />08032, ES</span>
+          <span>
+            <span data-personal="city"></span> <br />
+            <span data-personal="code"></span>, <span data-personal="country"></span>
+          </span>
           <!-- <i class="fa-solid fa-home contact-icon" aria-hidden="true"></i> -->
           <i data-lucide="map-pin-house" class="contact-icon" aria-hidden="true"></i>
         </div>
@@ -59,33 +63,25 @@
         <div>
           <i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i>
           <span>
-            <a href="mailto://jordi.peralta@outlook.com">jordi.peralta@outlook.com</a>
+            <a data-personal-link="email"></a>
           </span>
         </div>
         <div>
           <i class="fa-brands fa-linkedin contact-icon" aria-hidden="true"></i>
           <span>
-            <a href="https://www.linkedin.com/in/jperaltaf">linkedin.com/in/jperaltaf</a>
+            <a data-personal-link="linkedin"></a>
           </span>
         </div>
         <div>
           <i class="fa-solid fa-earth-americas contact-icon" aria-hidden="true"></i>
           <span>
-            <a
-              href="https://jordiperalta-cv.netlify.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >jordiperalta-cv.netlify.app</a>
+            <a data-personal-link="website" target="_blank" rel="noopener noreferrer"></a>
           </span>
         </div>
         <div>
           <i class="fa-brands fa-docker contact-icon" aria-hidden="true"></i>
           <span>
-            <a
-              href="https://quay.io/repository/jordiperalta/cv"
-              target="_blank"
-              rel="noopener noreferrer"
-            >quay.io/jordiperalta/cv</a>
+            <a data-personal-link="docker" target="_blank" rel="noopener noreferrer"></a>
           </span>
         </div>
       </div>
@@ -96,6 +92,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="data/experience.js"></script>
     <script src="data/education.js"></script>
+    <script src="data/personal.js"></script>
     <script src="script.js"></script>
     <script>
       lucide.createIcons();

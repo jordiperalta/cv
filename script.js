@@ -1,5 +1,31 @@
 // Set the first year shown in the timeline: year, zero-based month, day.
 const timelineStartDate = new Date(); // new Date(2025, 1, 5);
+const personalLinkPrefixes = {
+  email: 'mailto:',
+  linkedin: 'https://',
+  website: 'https://',
+  docker: 'https://',
+};
+
+document.querySelector('[data-personal="first-name"]').textContent =
+  personalData.firstName;
+document.querySelector('[data-personal="last-name"]').textContent =
+  personalData.lastName;
+document.querySelector('[data-personal="city"]').textContent =
+  personalData.location.city;
+document.querySelector('[data-personal="code"]').textContent =
+  personalData.location.code;
+document.querySelector('[data-personal="country"]').textContent =
+  personalData.location.country;
+
+document.querySelectorAll('[data-personal-link]').forEach((link) => {
+  const key = link.dataset.personalLink;
+  const value = personalData[key];
+
+  link.textContent = value;
+  link.href = `${personalLinkPrefixes[key]}${value}`;
+});
+
 const timelineStartYear = timelineStartDate.getFullYear();
 // Change this value to control the oldest year displayed on the timeline.
 const timelineOldestYear = 2011;
