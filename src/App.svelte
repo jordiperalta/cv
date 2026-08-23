@@ -3,18 +3,17 @@
   import qrCodeUrl from '../assets/qr-jordiperalta-cv.svg';
   import { educationData } from '../data/education.js';
   import { experienceData } from '../data/experience.js';
+  import { personalData } from '../data/personal.js';
 
   const timelineStartDate = new Date();
   const timelineStartYear = timelineStartDate.getFullYear();
-  const dividerCount = 16;
+  // Change this value to control the oldest year displayed on the timeline.
+  const timelineOldestYear = 2011;
+  const dividerCount = timelineStartYear - timelineOldestYear + 1;
   const firstFullYearDividerHeight = 12;
   const lastDividerHeight = 4;
   const logarithmicScale = 10;
-  const timelineOldestDate = new Date(
-    timelineStartYear - dividerCount + 1,
-    0,
-    1,
-  );
+  const timelineOldestDate = new Date(timelineOldestYear, 0, 1);
   const rainbowColors = createRainbowColors(
     experienceData.length + educationData.length,
   );
@@ -92,6 +91,7 @@
   function formatYearMonth(value) {
     const date = parseDate(value);
     return {
+      isPresent: value === 'Present',
       year: date.getFullYear(),
       month: date.toLocaleString('en-US', { month: 'short' }),
     };
@@ -234,10 +234,13 @@
 <main class="document">
   <div class="header">
     <div>
-      <p>Jordi<br />Peralta</p>
+      <p>{personalData.firstName}<br />{personalData.lastName}</p>
     </div>
     <div class="qr-code">
-      <img alt="QR code for Jordi Peralta's CV" src={qrCodeUrl} />
+      <img
+        alt={`QR code for ${personalData.firstName} ${personalData.lastName}'s CV`}
+        src={qrCodeUrl}
+      />
     </div>
   </div>
 
@@ -289,7 +292,11 @@
                   {@const end = formatYearMonth(period.endDate)}
                   <div class="details-card-dates">
                     <span class="timeline-card-year">{start.year}</span>{start.month}-
-                    <span class="timeline-card-year">{end.year}</span>{end.month}
+                    {#if end.isPresent}
+                      <b>Present</b>
+                    {:else}
+                      <span class="timeline-card-year">{end.year}</span>{end.month}
+                    {/if}
                   </div>
                 {/each}
                 <div class="timeline-card-entity">{record.entity}</div>
@@ -340,7 +347,11 @@
                 <div class="details-card-accent" style={`--accent-color: ${color}`}></div>
                 <div class="details-card-dates">
                   <span class="timeline-card-year">{start.year}</span>{start.month}-
-                  <span class="timeline-card-year">{end.year}</span>{end.month}
+                  {#if end.isPresent}
+                    <b>Present</b>
+                  {:else}
+                    <span class="timeline-card-year">{end.year}</span>{end.month}
+                  {/if}
                 </div>
                 <div class="timeline-card-entity">{record.entity}</div>
                 <div class="timeline-card-title">{record.title}</div>
@@ -355,33 +366,45 @@
   </div>
 
   <div class="location">
-    <div>
-      <span>Barcelona <br />08032, ES</span>
-      <i data-lucide="map-pin-house" class="contact-icon" aria-hidden="true"></i>
-    </div>
+    {#if personalData.location}
+      <div>
+        <span>{personalData.location.city} <br />{personalData.location.code}, {personalData.location.country}</span>
+        <i data-lucide="map-pin-house" class="contact-icon" aria-hidden="true"></i>
+      </div>
+    {/if}
   </div>
 
   <div class="contact">
-    <div>
-      <i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i>
-      <span><a href="mailto:jordi.peralta@outlook.com">jordi.peralta@outlook.com</a></span>
-    </div>
-    <div>
-      <i class="fa-brands fa-linkedin contact-icon" aria-hidden="true"></i>
-      <span><a href="https://www.linkedin.com/in/jperaltaf" target="_blank" rel="noopener noreferrer">linkedin.com/in/jperaltaf</a></span>
-    </div>
-    <div>
-      <i class="fa-brands fa-whatsapp contact-icon whatsapp-icon" aria-hidden="true"></i>
-      <span><a href="https://wa.me/jordiperalta" target="_blank" rel="noopener noreferrer">@jordiperalta</a></span>
-    </div>
-    <div>
-      <i class="fa-solid fa-earth-americas contact-icon" aria-hidden="true"></i>
-      <span><a href="https://jordiperalta-cv.netlify.app" target="_blank" rel="noopener noreferrer">jordiperalta-cv.netlify.app</a></span>
-    </div>
-    <div>
-      <i class="fa-brands fa-docker contact-icon" aria-hidden="true"></i>
-      <span><a href="https://quay.io/repository/jordiperalta/cv" target="_blank" rel="noopener noreferrer">quay.io/jordiperalta/cv</a></span>
-    </div>
+    {#if personalData.email}
+      <div>
+        <i class="fa-solid fa-envelope contact-icon" aria-hidden="true"></i>
+        <span><a href={`mailto:${personalData.email}`}>{personalData.email}</a></span>
+      </div>
+    {/if}
+    {#if personalData.linkedin}
+      <div>
+        <i class="fa-brands fa-linkedin contact-icon" aria-hidden="true"></i>
+        <span><a href={`https://${personalData.linkedin}`} target="_blank" rel="noopener noreferrer">{personalData.linkedin}</a></span>
+      </div>
+    {/if}
+    {#if personalData.whatsapp} 
+      <div>
+        <i class="fa-brands fa-whatsapp contact-icon whatsapp-icon" aria-hidden="true"></i>
+        <span><a href={`https://${personalData.whatsapp}`} target="_blank" rel="noopener noreferrer">{personalData.whatsapp}</a></span>
+      </div>
+    {/if}
+    {#if personalData.website}
+      <div>
+        <i class="fa-solid fa-earth-americas contact-icon" aria-hidden="true"></i>
+        <span><a href={`https://${personalData.website}`} target="_blank" rel="noopener noreferrer">{personalData.website}</a></span>
+      </div>
+    {/if}
+    {#if personalData.docker}
+      <div>
+        <i class="fa-brands fa-docker contact-icon" aria-hidden="true"></i>
+        <span><a href={`https://${personalData.docker}`} target="_blank" rel="noopener noreferrer">{personalData.docker}</a></span>
+      </div>
+    {/if}
   </div>
 </main>
 
