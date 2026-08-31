@@ -73,7 +73,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   color: #ffffff;
-  background-image: linear-gradient(125deg, #485e88 0%, #485e88 17.5%, #ffffff 41%);
+  background-image: linear-gradient(125deg, #485e88 0%, #485e88 7.5%, #6e7fa1 20%,#ffffff 45%);
 }
 
 .header p {
@@ -168,7 +168,7 @@ body {
 }
 
 .history {
-  flex: 0 0 32.5%;
+  flex: 0 0 35%;
   height: 100%;
   min-height: 0;
   position: relative;
@@ -180,7 +180,7 @@ body {
 
 .history.history-hover {
   flex-basis: calc(
-    32.5% + var(--history-hover-swing) + var(--history-hover-swing)
+    35% + var(--history-hover-swing) + var(--history-hover-swing)
   );
   margin-right: calc(
     0px - var(--history-hover-swing) - var(--history-hover-swing)
@@ -297,7 +297,7 @@ body {
 }
 
 .experience {
-  flex: 0 0 67.5%;
+  flex: 0 0 65%;
   height:100%;
   min-height: 0;
   position: relative;
@@ -359,31 +359,44 @@ body {
   width: calc(100% + 8px);
   margin: -4px 0 2px -4px;
   height: 4px;
+  transition: opacity 200ms ease;
+}
+
+.details-card.non-active .details-card-accent {
+  opacity: 0.25;
 }
 
 .experience-details .details-card-accent {
-  background-image: linear-gradient(
-    to right,
-    #405eb3 0 40%,
-    var(--accent-color) 65% 100%
-  );
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  margin: 0;
+  background-color: var(--accent-color);
 }
 
 .education-details .details-card-accent {
-  background-image: linear-gradient(
-    to left,
-    #405eb3 0 40%,
-    var(--accent-color) 65% 100%
-  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  margin: 0;
+  background-color: var(--accent-color);
 }
 
 .experience-details .details-card {
   margin-left: 2px;
+  padding-right: 8px;
+  position: relative;
 }
 
 .education-details .details-card {
   margin-right: 2px;
   margin-left: auto;
+  padding-left: 8px;
+  position: relative;
 }
 
 .timeline-card-entity {
