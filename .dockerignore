@@ -1,3 +1,4 @@
 .git
+.vite
 node_modules
 dist
