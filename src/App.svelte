@@ -360,6 +360,7 @@
           </div>
         </div>
       </div>
+      <div class="history-footer"></div>
     </div>
 
     <div class="experience"></div>
