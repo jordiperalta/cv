@@ -185,9 +185,36 @@
       ?.dataset.recordId ?? null;
   }
 
-  function activateRecord(recordId) {
+  function yearFromTarget(target) {
+    if (!(target instanceof Element)) return null;
+
+    const year = target.closest('.history-divider')?.dataset.year;
+    return year ? Number(year) : null;
+  }
+
+  function recordIdsForYear(year) {
+    const yearStart = new Date(year, 0, 1);
+    const nextYearStart = new Date(year + 1, 0, 1);
+    const recordsOverlapYear = (records, recordType) =>
+      records.flatMap((record, index) =>
+        record.periods.some((period) => {
+          const startDate = parseDate(period.startDate);
+          const endDate = parseDate(period.endDate);
+          return startDate < nextYearStart && endDate >= yearStart;
+        })
+          ? [`${recordType}-${index}`]
+          : [],
+      );
+
+    return [
+      ...recordsOverlapYear(experienceData, 'experience'),
+      ...recordsOverlapYear(educationData, 'education'),
+    ];
+  }
+
+  function activateRecords(recordIds) {
     document.querySelectorAll('.details-card').forEach((card) => {
-      const isActive = card.dataset.recordId === recordId;
+      const isActive = recordIds.includes(card.dataset.recordId);
       card.classList.toggle('active', isActive);
       card.classList.toggle('non-active', !isActive);
     });
@@ -195,10 +222,18 @@
     document
       .querySelectorAll('.experience-period, .education-period')
       .forEach((period) => {
-        const isActive = period.dataset.recordId === recordId;
+        const isActive = recordIds.includes(period.dataset.recordId);
         period.classList.toggle('active', isActive);
         period.classList.toggle('non-active', !isActive);
       });
+  }
+
+  function activateRecord(recordId) {
+    activateRecords([recordId]);
+  }
+
+  function activateYear(year) {
+    activateRecords(recordIdsForYear(year));
   }
 
   function resetActiveRecord() {
@@ -209,18 +244,28 @@
 
   function handleRecordPointerOver(event) {
     const recordId = recordIdFromTarget(event.target);
-    if (recordId) activateRecord(recordId);
+    if (recordId) {
+      activateRecord(recordId);
+      return;
+    }
+
+    const year = yearFromTarget(event.target);
+    if (year !== null) activateYear(year);
   }
 
   function handleRecordPointerOut(event) {
     const previousRecordId = recordIdFromTarget(event.target);
-    if (!previousRecordId) return;
+    const previousYear = yearFromTarget(event.target);
+    if (!previousRecordId && previousYear === null) return;
 
     const nextRecordId = recordIdFromTarget(event.relatedTarget);
-    if (nextRecordId === previousRecordId) return;
+    const nextYear = yearFromTarget(event.relatedTarget);
+    if (nextRecordId === previousRecordId && nextYear === previousYear) return;
 
     if (nextRecordId) {
       activateRecord(nextRecordId);
+    } else if (nextYear !== null) {
+      activateYear(nextYear);
     } else {
       resetActiveRecord();
     }
@@ -249,8 +294,14 @@
 
   <div class="history-main-centre">
     {#each dividerWeights as weight, index}
-      <div bind:this={dividerElements[index]} class="history-divider" style={`--divider-weight: ${weight}`}>
-        <span class="history-divider-year">{timelineStartYear - index}</span>
+      {@const year = timelineStartYear - index}
+      <div
+        bind:this={dividerElements[index]}
+        class={`history-divider history-${year}`}
+        data-year={year}
+        style={`--divider-weight: ${weight}`}
+      >
+        <span class="history-divider-year">{year}</span>
       </div>
     {/each}
   </div>
