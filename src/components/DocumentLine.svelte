@@ -5,6 +5,8 @@
   export let y1 = 0;
   export let x2 = 100;
   export let y2 = 100;
+  export let startXOffset = 0;
+  export let endXOffset = 0;
   export let startColor = '#000000';
   export let endColor = '#ffffff';
   export let strokeWidth = 2;
@@ -16,9 +18,9 @@
   let offsetTop = 0;
   const gradientId = `document-line-${Math.random().toString(36).slice(2)}`;
 
-  $: lineX1 = (x1 / 100) * documentWidth;
+  $: lineX1 = (x1 / 100) * documentWidth + startXOffset;
   $: lineY1 = (y1 / 100) * documentHeight;
-  $: lineX2 = (x2 / 100) * documentWidth;
+  $: lineX2 = (x2 / 100) * documentWidth + endXOffset;
   $: lineY2 = (y2 / 100) * documentHeight;
 
   onMount(() => {

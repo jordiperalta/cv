@@ -6,6 +6,7 @@
   import Info from './components/Info.svelte';
   import Life from './components/Life.svelte';
   import Location from './components/Location.svelte';
+  import Main from './components/Main.svelte';
   import Wheel from './components/Wheel.svelte';
 </script>
 
@@ -13,7 +14,7 @@
   <Header />
   <Content>
     <Life />
-    <div class="experience"></div>
+    <Main />
   </Content>
   <Location />
   <Info />

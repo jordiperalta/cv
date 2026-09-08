@@ -86,7 +86,7 @@ body {
 
 .contact {
   position: absolute;
-  top: 163px;
+  top: 160px;
   right: 20px;
   display: flex;
   flex-direction: column;
@@ -105,10 +105,30 @@ body {
 .location {
   position: absolute;
   top: 10px;
-  right: 210px;
+  right: 160px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+}
+
+.job-title {
+  margin: 4.35rem .5rem 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.job-title div:first-child {
+  color: #fff;
+  background: linear-gradient(90deg, #08714f 0%, #47b481 86%, #fff 97.5%);
+  width: 295px;
+  padding: 5px 0 7px 8px;
+}
+
+.job-title .techs {
+  margin: .3125rem 0.125em;
+  font-size: .875rem;
+  font-weight: 600;
+  color: #08714f;
 }
 
 .contact > div,
@@ -586,7 +606,7 @@ body {
 .wheel {
   position: absolute;
   top: 105px;
-  left: 385px;
+  left: 435px;
   width: 0;
   height: 0;
 }
