@@ -93,19 +93,30 @@ body {
   align-items: flex-end;
 }
 
+.info {
+  position: absolute;
+  top: 115px;
+  right: 155px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 .location {
   position: absolute;
-  top: 20px;
-  right: 145px;
+  top: 10px;
+  right: 210px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
 .contact > div,
-.location > div {
+.location > div,
+.info > div {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .contact-icon {
@@ -114,8 +125,22 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #485e88;
+  color: #666;
   font-size: 1rem;
+}
+
+.info .contact-icon {
+  flex-basis: 30px;
+  width: 26px;
+  height: 26px;
+  fill: #666;
+  color: #ffffff;
+}
+
+.info > div > span {
+  font-weight: 350;
+  color: #555;
+  padding: 0 2px 1px;
 }
 
 .whatsapp-icon {
@@ -128,7 +153,7 @@ body {
 
 .contact > div > span,
 .location > div > span {
-  font-size: .875rem;
+  font-size: .9375rem;
   font-weight: 400;
 }
 
@@ -139,12 +164,26 @@ body {
 
 .contact > div > span > a {
   font-size: .8175rem;
-  color: #485e88;
+  color: #555;
   text-decoration: none;
+  transition: color 250ms, text-shadow 250ms;
+}
+
+.contact > div > i {
+  transition: color 250ms;
+}
+
+.contact > div:hover > span > a {
+  color: #485e88;
+  text-shadow: #485e88 0 0 1px;
+}
+
+.contact > div:hover > i {
+  color: #485e88;
 }
 
 .location > div > span {
-  font-size: .875rem;
+  margin-top: -5px;
   line-height: 1.1;
   color: #cc1931;
   text-decoration: none;
@@ -163,9 +202,7 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  img {
-    height: 125px;
-    width: 125px;
+  .asini-qr {
     margin: 5px;
   }
 }
@@ -364,6 +401,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  user-select: none;
   padding-bottom: .25rem;
 }
 
@@ -416,6 +454,7 @@ body {
   border: 1px solid #b1bde2;
   border-radius: 4px;
   overflow: hidden;
+  user-select: none;
   background-color: #ffffffe0;
   font-size: 0.75rem;
   transition: background-color 350ms ease, box-shadow 350ms ease;
@@ -546,8 +585,8 @@ body {
 
 .wheel {
   position: absolute;
-  top: 150px;
-  left: 440px;
+  top: 105px;
+  left: 385px;
   width: 0;
   height: 0;
 }
@@ -602,7 +641,7 @@ body {
   height: 16px;
   margin-top: -8px;
   padding: 0;
-  opacity: 0;
+  opacity: 0.15;
   transition: opacity 200ms ease;
   pointer-events: auto;
   transform-origin: 0 50%;
@@ -694,5 +733,9 @@ body {
 
   .print-button {
     display: none;
+  }
+
+  .document-line-range {
+    opacity: 0;
   }
 }
