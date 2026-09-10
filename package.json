@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@nomideusz/svelte-qr": "^1.0.0",
+    "dompurify": "^3.4.15",
+    "marked": "^18.0.12",
     "svelte": "^5.0.0"
   },
   "devDependencies": {

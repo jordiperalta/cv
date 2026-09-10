@@ -117,7 +117,7 @@ body {
   line-height: 1.2;
 }
 
-.job-title div:first-child {
+.job-title > div:first-child {
   color: #fff;
   background: linear-gradient(90deg, #08714f 0%, #47b481 86%, #fff 97.5%);
   width: 295px;
@@ -129,6 +129,16 @@ body {
   font-size: .875rem;
   font-weight: 600;
   color: #08714f;
+}
+
+.job-title p {
+  margin: .5rem .125em 0;
+  font-size: .875rem;
+}
+
+.job-title code {
+  font-size: .75rem;
+  font-weight: 300;
 }
 
 .contact > div,
