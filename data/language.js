@@ -1,6 +1,7 @@
 export const languageData = [
   {
     name: 'catalan',
+    certification: 'Native language',
     level: 'C1',
     speak: 87,
     read: 92,
@@ -15,6 +16,7 @@ export const languageData = [
   },
   {
     name: 'spanish',
+    certification: 'Native language',
     level: 'C1',
     speak: 93,
     read: 96,
@@ -29,6 +31,7 @@ export const languageData = [
   },
   {
     name: 'english',
+    certification: 'Certification: Trinity College of London GESE Grade 9',
     level: 'B2.3',
     speak: 62,
     read: 68,

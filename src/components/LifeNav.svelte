@@ -23,6 +23,7 @@
   let dividerElements = [];
   let experiencePeriods = [];
   let educationPeriods = [];
+  export let historyHover = false;
 
   function createRainbowColors(count) {
     const colorStops = [
@@ -212,7 +213,24 @@
     ];
   }
 
-  function activateRecords(recordIds) {
+  function yearsForRecordIds(recordIds) {
+    const records = [
+      ...experienceData.map((record, index) => ({ record, id: `experience-${index}` })),
+      ...educationData.map((record, index) => ({ record, id: `education-${index}` })),
+    ];
+
+    return [...new Set(records.flatMap(({ record, id }) => {
+      if (!recordIds.includes(id)) return [];
+
+      return record.periods.flatMap((period) => {
+        const startYear = Math.max(parseDate(period.startDate).getFullYear(), timelineOldestYear);
+        const endYear = Math.min(parseDate(period.endDate).getFullYear(), timelineStartYear);
+        return Array.from({ length: Math.max(endYear - startYear + 1, 0) }, (_, index) => startYear + index);
+      });
+    }))];
+  }
+
+  function activateRecords(recordIds, activeYears = yearsForRecordIds(recordIds)) {
     document.querySelectorAll('.details-card').forEach((card) => {
       const isActive = recordIds.includes(card.dataset.recordId);
       card.classList.toggle('active', isActive);
@@ -226,6 +244,12 @@
         period.classList.toggle('active', isActive);
         period.classList.toggle('non-active', !isActive);
       });
+
+    document.querySelectorAll('.history-divider').forEach((divider) => {
+      const isActive = activeYears.includes(Number(divider.dataset.year));
+      divider.classList.toggle('active', isActive);
+      divider.classList.toggle('non-active', !isActive);
+    });
   }
 
   function activateRecord(recordId) {
@@ -233,12 +257,12 @@
   }
 
   function activateYear(year) {
-    activateRecords(recordIdsForYear(year));
+    activateRecords(recordIdsForYear(year), [year]);
   }
 
   function resetActiveRecord() {
     document
-      .querySelectorAll('.details-card, .experience-period, .education-period')
+      .querySelectorAll('.details-card, .experience-period, .education-period, .history-divider')
       .forEach((element) => element.classList.remove('active', 'non-active'));
   }
 
@@ -282,6 +306,7 @@
 </script>
 
 <div
+  class:history-hover={historyHover}
   class="history-main"
   onpointerover={handleRecordPointerOver}
   onpointerout={handleRecordPointerOut}
@@ -313,3 +338,58 @@
     experienceCount={experienceData.length}
   />
 </div>
+
+<style>
+  .history-main {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    border-right: #485e881f 1px solid;
+    transition: padding 350ms ease;
+  }
+
+  .history-main.history-hover { padding: 0 var(--history-hover-swing); }
+
+  .history-main-centre {
+    margin: 0;
+    flex: 0 0 16px;
+    min-width: 0;
+    height: 100% - 4px;
+    background-image: linear-gradient(#56698FFF 92%, #56698F00 100%);
+    background-clip: padding-box;
+    border: 1px solid #e5e7eb7f;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .history-divider {
+    position: relative;
+    flex: var(--divider-weight, 1) 1 0;
+    min-height: 0;
+    border-bottom: 1px solid #e5e7eb7f;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    user-select: none;
+    padding-bottom: .25rem;
+    transition: border-color 350ms ease, opacity 350ms ease;
+  }
+
+  .history-divider::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 1px;
+    background-image: linear-gradient(to bottom, #b5bdce, #cfd5e6 50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 350ms ease;
+  }
+
+  .history-divider.active::before { opacity: 1; }
+  .history-divider.active { border-bottom-color: #9ba5b9; }
+  .history-divider.active .history-divider-year { color: #56698f; }
+  .history-divider.non-active { opacity: .85; }
+
+  .history-divider:first-child { min-height: 30px; }
+  .history-divider-year { position: relative; z-index: 1; width: 100%; text-align: center; transform: rotate(-90deg); font-size: .625rem; color: #e3e6ee; transition: color 200ms ease; }
+</style>

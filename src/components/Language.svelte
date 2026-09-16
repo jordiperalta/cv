@@ -1,5 +1,8 @@
 <script>
   import { languageData } from '../../data/language.js';
+  import { Tooltip as BitsTooltip } from 'bits-ui';
+  import Tooltip from './Tooltip.svelte';
+  export let historyHover = false;
 
   function createLanguageArc(score, radius) {
     const normalizedScore = Math.max(0, Math.min(100, score));
@@ -18,23 +21,57 @@
   }
 </script>
 
-<div class="history-footer">
+<div class:history-hover={historyHover} class="history-footer">
   <div class="history-header-section header-education history-footer-heading">
     <span>Language</span>
     <i class="fa-solid fa-language" aria-hidden="true"></i>
   </div>
-  {#each languageData as language (language.name)}
-    <svg height="150" width="125" viewBox="0 0 150 180">
-      <path fill="none" stroke={language.colors.base} stroke-width="30" d="M 25 75 A 50 50 0 1 0 75 25"></path>
-      <path class="language-arc speak" fill="none" stroke={language.colors.speak} stroke-width="10" pathLength="100" d={createLanguageArc(language.speak, 60)}></path>
-      <path class="language-arc read" fill="none" stroke={language.colors.read} stroke-width="10" pathLength="100" d={createLanguageArc(language.read, 50)}></path>
-      <path class="language-arc write" fill="none" stroke={language.colors.write} stroke-width="10" pathLength="100" d={createLanguageArc(language.write, 40)}></path>
-      <text x="62" y="14" font-size="0.875em" fill="#56698F" text-anchor="end">speak</text>
-      <text x="62" y="28" font-size="0.875em" fill="#56698F" text-anchor="end">read</text>
-      <text x="62" y="42" font-size="0.875em" fill="#56698F" text-anchor="end">write</text>
-      <text x="77" y="66" font-size="0.875em" fill="#56698F" text-anchor="middle">level*</text>
-      <text x="75" y="88" font-size="1.5em" fill="#56698F" text-anchor="middle">{language.level}</text>
-      <text x="75" y="165" font-size="1.375em" fill={language.colors.label} text-anchor="middle">{language.name}</text>
-    </svg>
-  {/each}
+  <BitsTooltip.Provider delayDuration={200} disableHoverableContent={true}>
+    {#each languageData as language (language.name)}
+      <Tooltip content={language.certification}>
+        <svg height="150" width="125" viewBox="0 0 150 180">
+          <path fill="none" stroke={language.colors.base} stroke-width="30" d="M 25 75 A 50 50 0 1 0 75 25"></path>
+          <path class="language-arc speak" fill="none" stroke={language.colors.speak} stroke-width="10" pathLength="100" d={createLanguageArc(language.speak, 60)}></path>
+          <path class="language-arc read" fill="none" stroke={language.colors.read} stroke-width="10" pathLength="100" d={createLanguageArc(language.read, 50)}></path>
+          <path class="language-arc write" fill="none" stroke={language.colors.write} stroke-width="10" pathLength="100" d={createLanguageArc(language.write, 40)}></path>
+          <text x="62" y="14" font-size="0.875em" fill="#56698F" text-anchor="end">speak</text>
+          <text x="62" y="28" font-size="0.875em" fill="#56698F" text-anchor="end">read</text>
+          <text x="62" y="42" font-size="0.875em" fill="#56698F" text-anchor="end">write</text>
+          <text x="77" y="66" font-size="0.875em" fill="#56698F" text-anchor="middle">level*</text>
+          <text x="75" y="88" font-size="1.5em" fill="#56698F" text-anchor="middle">{language.level}</text>
+          <text x="75" y="165" font-size="1.375em" fill={language.colors.label} text-anchor="middle">{language.name}</text>
+        </svg>
+      </Tooltip>
+    {/each}
+  </BitsTooltip.Provider>
 </div>
+
+<style>
+  .history-footer {
+    flex: 0 0 125px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    min-width: 0;
+    align-self: flex-end;
+    align-items: flex-end;
+    border-right: #485e881f 1px solid;
+    transition: width 350ms ease;
+  }
+
+  .history-footer.history-hover { width: calc(100% - var(--history-hover-swing) - var(--history-hover-swing)); }
+  .history-footer-heading { position: absolute; top: -16px; right: 0; width: calc(50% - 10px); z-index: 1; flex: none; justify-content: center; }
+  .history-footer-heading { min-width: 0; display: flex; align-items: center; gap: 2px; font-size: .9375rem; font-weight: 300; }
+  .history-footer-heading span { padding: 0 2px; transform: scaleX(.925); transform-origin: top right; transition: color 250ms ease; }
+  .history-footer-heading .fa-language { color: #485e88; font-size: 19px; transition: color 250ms ease; }
+  :global(.history-footer:has(svg:hover) .history-footer-heading span),
+  :global(.history-footer:has(svg:hover) .history-footer-heading .fa-language) { color: #bbb; }
+  .history-footer :global(.tooltip-trigger) { flex: 1 1 0; min-width: 0; }
+  .history-footer svg { width: 100%; height: auto; transition: filter 250ms ease, opacity 250ms ease; }
+  :global(.history-footer:has(svg:hover) .tooltip-trigger:not(:has(svg:hover)) svg) { filter: grayscale(1); opacity: .4; }
+  .language-arc { stroke-dasharray: 100; stroke-dashoffset: 0; }
+  .history-footer svg:hover .language-arc.write { animation: draw-language-arc 750ms ease 0ms both; }
+  .history-footer svg:hover .language-arc.read { animation: draw-language-arc 750ms ease 250ms both; }
+  .history-footer svg:hover .language-arc.speak { animation: draw-language-arc 750ms ease 500ms both; }
+  @keyframes draw-language-arc { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+</style>

@@ -20,3 +20,12 @@
 
   <ExperienceDetails {rainbowColors} />
 </div>
+
+<style>
+  .history-main-left {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    position: relative;
+  }
+</style>
