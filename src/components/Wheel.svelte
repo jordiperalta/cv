@@ -81,9 +81,9 @@
   <WheelRadius inner={size} angle={325} length={30} color="#cc1931" />
   <DocumentLine x1={59.3} y1={4.0} x2={59.3} y2={1.0} startXOffset={50} endXOffset={50} startColor="#cc1931" endColor="#cc1931"/>
   <WheelArc size={size} startAngle={334} endAngle={30} color="#555555" />
-  <DocumentLine x1={56.7} y1={12.65} x2={67.3} y2={15} startXOffset={50} startColor="#555555" endColor="#555555"/>
-  <DocumentLine x1={60.9} y1={15} x2={69.15} y2={13.35} startXOffset={50} startColor="#555555" endColor="#555555"/>
-  <DocumentLine x1={62.78} y1={13.35} x2={90} y2={13.35} startXOffset={50} startColor="#555555" endColor="#555555"/>
+  <DocumentLine x1={56.9} y1={12.63} x2={67.4} y2={14.8} startXOffset={50} startColor="#555555" endColor="#555555"/>
+  <DocumentLine x1={61.15} y1={14.87} x2={67.45} y2={13.27} startXOffset={50} startColor="#555555" endColor="#555555"/>
+  <DocumentLine x1={61.1} y1={13.35} x2={90} y2={13.35} startXOffset={50} startColor="#555555" endColor="#555555"/>
   <DocumentLine x1={83.6} y1={13.35} x2={98} y2={13.35} startXOffset={50} startColor="#555555" endColor="#55555500"/>
   <WheelResolution x1={63} y1={13.25} x2={81.5} y2={13.25} startXOffset={50} endXOffset={50} min={resolutionMin} max={resolutionMax} bind:value={resolution} />
   <WheelArc size={size} startAngle={39} endAngle={132} color="#10AF40" />

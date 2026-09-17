@@ -22,6 +22,8 @@ services:
     image: quay.io/jordiperalta/cv:${IMAGE_VERSION:-latest}
     ports:
       - "8173:80"
+    volumes:
+      - ./dist:/output
 
 volumes:
   dependencies:

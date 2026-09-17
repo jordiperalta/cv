@@ -56,10 +56,10 @@
     align-self: flex-end;
     align-items: flex-end;
     border-right: #485e881f 1px solid;
-    transition: width 350ms ease;
+    transition: padding 350ms ease;
   }
 
-  .history-footer.history-hover { width: calc(100% - var(--history-hover-swing) - var(--history-hover-swing)); }
+  .history-footer.history-hover { padding: 0 var(--history-hover-swing); }
   .history-footer-heading { position: absolute; top: -16px; right: 0; width: calc(50% - 10px); z-index: 1; flex: none; justify-content: center; }
   .history-footer-heading { min-width: 0; display: flex; align-items: center; gap: 2px; font-size: .9375rem; font-weight: 300; }
   .history-footer-heading span { padding: 0 2px; transform: scaleX(.925); transform-origin: top right; transition: color 250ms ease; }
