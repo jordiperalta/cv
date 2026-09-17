@@ -41,6 +41,12 @@ docker build -t jordiperalta/cv:1.0.0 .
 docker build -t quay.io/jordiperalta/cv:1.0.0 .
 ```
 
+or
+
+```sh
+docker compose --profile build up --build bundle
+```
+
 Log in to the container registry:
 
 ```sh

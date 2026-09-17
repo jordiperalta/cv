@@ -1,0 +1,25 @@
+services:
+
+  dev:
+    container_name: svelte-cv
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - "5176:5173"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+
+  bundle:
+    profiles:
+      - build
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: quay.io/jordiperalta/cv:${IMAGE_VERSION:-latest}
+    ports:
+      - "8173:80"
+
+volumes:
+  node_modules:

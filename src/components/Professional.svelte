@@ -252,7 +252,7 @@
     }
 
     .experience-types {
-        width: 50%;
+        width: 57.5%;
         text-align: left;
     }
 
