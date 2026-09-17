@@ -7,9 +7,11 @@ services:
       dockerfile: dev.Dockerfile
     ports:
       - "5176:5173"
+    environment:
+      VITE_CACHE_DIR: /tmp/vite
     volumes:
       - .:/app
-      - node_modules:/app/node_modules
+      - dependencies:/node_modules
 
   bundle:
     profiles:
@@ -22,4 +24,4 @@ services:
       - "8173:80"
 
 volumes:
-  node_modules:
+  dependencies:
