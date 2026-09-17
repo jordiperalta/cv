@@ -34,3 +34,14 @@
     </div>
   {/if}
 </div>
+
+<style>
+.contact {
+  position: absolute;
+  top: 160px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+</style>

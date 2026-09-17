@@ -28,7 +28,7 @@
     z-index: 10;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to bottom, #b8c0d1cf, #fcfdfef7);
+    background-image: linear-gradient(to bottom, #b8c0d1cf, #fcfdfedf);
     transition: flex-basis 350ms ease, margin-right 350ms ease, padding-left 350ms ease;
   }
 

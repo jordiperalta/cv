@@ -58,3 +58,78 @@
     aria-label="Image pixelation resolution"
   />
 </div>
+
+<style>
+.document-line-range {
+  position: absolute;
+  z-index: 1;
+  height: 16px;
+  margin-top: -8px;
+  padding: 0;
+  opacity: 0.15;
+  transition: opacity 200ms ease;
+  pointer-events: auto;
+  transform-origin: 0 50%;
+}
+
+.wheel-range-layer:hover .document-line-range {
+  opacity: 1;
+}
+
+.document-line-range:focus-visible {
+  opacity: 1;
+}
+
+.document-line-range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: #555555;
+  border-radius: 1px;
+}
+
+.document-line-range::-moz-range-track {
+  height: 2px;
+  background: #555555;
+  border-radius: 1px;
+}
+
+.document-line-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -5px;
+  border: 0;
+  border-radius: 50%;
+  background: #555555;
+  cursor: pointer;
+}
+
+.document-line-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: #555555;
+  cursor: pointer;
+}
+
+.document-line-range {
+  appearance: none;
+  pointer-events: auto;
+}
+
+.wheel-range-layer {
+  position: absolute;
+  z-index: 20;
+  height: 16px;
+  margin-top: -8px;
+  pointer-events: none;
+  transform-origin: 0 50%;
+}
+
+.wheel-range-layer .document-line-range {
+  position: static;
+  width: 100%;
+  height: 16px;
+  margin: 0;
+}
+</style>
