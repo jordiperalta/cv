@@ -26,7 +26,7 @@
     <span>Language</span>
     <i class="fa-solid fa-language" aria-hidden="true"></i>
   </div>
-  <BitsTooltip.Provider delayDuration={200} disableHoverableContent={true}>
+  <BitsTooltip.Provider delayDuration={200} disableHoverableContent={true} disableCloseOnTriggerClick={true}>
     {#each languageData as language (language.name)}
       <Tooltip content={language.certification}>
         <svg height="150" width="125" viewBox="0 0 150 180">
