@@ -22,123 +22,123 @@
 </script>
 
     <div class="professional">
-    <div>{aboutMe.title}</div>
-    <div class="techs">{aboutMe.subtitle}</div>
-    <div class="professional-code-stack">
-    <code class="professional-code-copy">
-        <div class="code-content">
-        <div class="experience-definition">
-        <div class="declaration experience-types">
-            <span class="declaration">
-                <span class="syntax-keyword">type</span>
-                <span class="syntax-constant">Time</span>
-                <span class="syntax-operator">=</span>
-                <span class="syntax-type-parameter">Date</span>
-                <span class="syntax-punctuation syntax-bracket">|</span>
-                <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span><span class="syntax-punctuation syntax-structure">;</span>
-            </span>
+        <div class="professional-title">{aboutMe.title}</div>
+        <div class="techs">{aboutMe.subtitle}</div>
+        <div class="professional-code-stack">
+        <code class="professional-code-copy">
+            <div class="code-content">
+            <div class="experience-definition">
+            <div class="declaration experience-types">
+                <span class="declaration">
+                    <span class="syntax-keyword">type</span>
+                    <span class="syntax-constant">Time</span>
+                    <span class="syntax-operator">=</span>
+                    <span class="syntax-type-parameter">Date</span>
+                    <span class="syntax-punctuation syntax-bracket">|</span>
+                    <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span><span class="syntax-punctuation syntax-structure">;</span>
+                </span>
+                <br/>
+                <span class="declaration">
+                    <span class="syntax-keyword">type</span>
+                    <span class="syntax-constant">Period</span>
+                    <span class="syntax-operator">=</span>
+                    <span class="syntax-punctuation syntax-bracket">[</span><span class="syntax-type-parameter">Time</span>,
+                    <span class="syntax-type-parameter">Time</span><span class="syntax-punctuation syntax-bracket">]</span><span class="syntax-punctuation syntax-structure">;</span>
+                </span>
+                <br/>
+                <span class="declaration">
+                    <span class="syntax-keyword">type</span>
+                    <span class="syntax-constant">Description</span>
+                    <span class="syntax-operator">=</span>
+                    <span class="syntax-type">Array</span><span class="syntax-type-parameter">&lt;string&gt;</span><span class="syntax-punctuation syntax-structure">;</span>
+                </span>
+            </div>
+            <div class="declaration interface-experience">
+                <span class="syntax-keyword">interface</span>
+                <span class="syntax-constant">Experience</span>
+                <span class="syntax-punctuation syntax-bracket">&lbrace;</span>
+                <br />
+                <div class="indentation">
+                    company:
+                    <span class="syntax-type-parameter">string</span>;
+                    <br />
+                    job:
+                    <span class="syntax-type-parameter">string</span>;
+                    <br />
+                    period:
+                    <span class="syntax-type-parameter">Period</span>;
+                    <br />
+                    mainTasks:
+                    <span class="syntax-type-parameter">Description</span>;
+                    <br />
+                </div>
+                <span class="syntax-punctuation syntax-bracket">&rbrace;</span>
+            </div>
+            </div>
             <br/>
             <span class="declaration">
-                <span class="syntax-keyword">type</span>
-                <span class="syntax-constant">Period</span>
-                <span class="syntax-operator">=</span>
-                <span class="syntax-punctuation syntax-bracket">[</span><span class="syntax-type-parameter">Time</span>,
-                <span class="syntax-type-parameter">Time</span><span class="syntax-punctuation syntax-bracket">]</span><span class="syntax-punctuation syntax-structure">;</span>
+                <span class="syntax-keyword">const</span>
+                <span class="syntax-constant">professionalExp</span><span class="syntax-punctuation">:</span>
+                <span class="syntax-type">Set</span><span class="syntax-type-parameter">&lt;Experience&gt;</span> 
+                <span class="syntax-operator">=</span> 
+                <span class="syntax-keyword">new</span>
+                <span class="syntax-constant">Set</span><span class="syntax-punctuation syntax-bracket">()</span><span class="syntax-punctuation">;</span>
             </span>
-            <br/>
+            <br/><br/>
             <span class="declaration">
-                <span class="syntax-keyword">type</span>
-                <span class="syntax-constant">Description</span>
-                <span class="syntax-operator">=</span>
-                <span class="syntax-type">Array</span><span class="syntax-type-parameter">&lt;string&gt;</span><span class="syntax-punctuation syntax-structure">;</span>
+                <span class="syntax-keyword">const</span>
+                <span class="syntax-constant">aboutMe</span><span class="syntax-punctuation">:</span>
+                <span class="syntax-type-parameter">Description</span> 
+                <span class="syntax-operator">=</span> 
+                <span class="syntax-punctuation syntax-bracket">[</span>
             </span>
-        </div>
-        <div class="declaration interface-experience">
-            <span class="syntax-keyword">interface</span>
-            <span class="syntax-constant">Experience</span>
-            <span class="syntax-punctuation syntax-bracket">&lbrace;</span>
-            <br />
-            <div class="indentation">
-                company:
-                <span class="syntax-type-parameter">string</span>;
-                <br />
-                job:
-                <span class="syntax-type-parameter">string</span>;
-                <br />
-                period:
-                <span class="syntax-type-parameter">Period</span>;
-                <br />
-                mainTasks:
-                <span class="syntax-type-parameter">Description</span>;
-                <br />
-            </div>
-            <span class="syntax-punctuation syntax-bracket">&rbrace;</span>
-        </div>
-        </div>
-        <br/>
-        <span class="declaration">
-            <span class="syntax-keyword">const</span>
-            <span class="syntax-constant">professionalExp</span><span class="syntax-punctuation">:</span>
-            <span class="syntax-type">Set</span><span class="syntax-type-parameter">&lt;Experience&gt;</span> 
-            <span class="syntax-operator">=</span> 
-            <span class="syntax-keyword">new</span>
-            <span class="syntax-constant">Set</span><span class="syntax-punctuation syntax-bracket">()</span><span class="syntax-punctuation">;</span>
-        </span>
-        <br/><br/>
-        <span class="declaration">
-            <span class="syntax-keyword">const</span>
-            <span class="syntax-constant">aboutMe</span><span class="syntax-punctuation">:</span>
-            <span class="syntax-type-parameter">Description</span> 
-            <span class="syntax-operator">=</span> 
-            <span class="syntax-punctuation syntax-bracket">[</span>
-        </span>
-        {#each aboutMe.summary as paragraph}
-            <span class="summary">
-                <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown(paragraph)}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
-            </span>
-        {/each}
-        <span class="syntax-punctuation syntax-structure syntax-bracket">]</span><span class="syntax-punctuation syntax-structure">;</span>
-        <br /><br />
-        <span class="declaration">
-        {#each experienceData.slice(0, experienceLimit) as experience}
-            <span class="syntax-constant">professionalExp.add</span><span class="syntax-punctuation syntax-bracket">(</span><span class="syntax-keyword">&lbrace;</span>
-            <div class="indentation">
-                company:
-                <span class="syntax-quote">'</span><span class="syntax-string-content">{experience.entity}</span><span class="syntax-quote">'</span>,
-                <br />
-                job:
-                <span class="syntax-quote">'</span><span class="syntax-string-content">{experience.title}</span><span class="syntax-quote">'</span>,
-                <br />
-                period:
-                {#if isPresent(experience.periods[0].startDate)}
-                    <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
-                {:else}
-                    <span class="syntax-type-parameter">[</span><span class="syntax-keyword">new</span>
-                    <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{experience.periods[0].startDate}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
-                {/if},
-                {#if isPresent(experience.periods[0].endDate)}
-                    <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
-                {:else}
-                    <span class="syntax-keyword">new</span>
-                    <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{experience.periods[0].endDate}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
-                {/if}<span class="syntax-type-parameter">]</span>,
-                <br />
-                mainTasks:
-                <span class="syntax-type-parameter">[</span>
-                {#each experience.mainTasks as paragraph}
-                    <span class="summary">
-                        <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown(paragraph)}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
-                    </span>
-                {/each}
-                <span class="syntax-type-parameter">]</span>,
-            </div>
-            <span class="syntax-keyword">&rbrace;</span><span class="syntax-punctuation syntax-bracket">)</span>;
+            {#each aboutMe.summary as paragraph}
+                <span class="summary">
+                    <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown(paragraph)}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
+                </span>
+            {/each}
+            <span class="syntax-punctuation syntax-structure syntax-bracket">]</span><span class="syntax-punctuation syntax-structure">;</span>
             <br /><br />
-        {/each}
-        </span>
-        </div>
-    </code>
-    <code class="professional-code" aria-hidden="true"></code>
+            <span class="declaration">
+            {#each experienceData.slice(0, experienceLimit) as experience}
+                <span class="syntax-constant">professionalExp.add</span><span class="syntax-punctuation syntax-bracket">(</span><span class="syntax-keyword">&lbrace;</span>
+                <div class="indentation">
+                    company:
+                    <span class="syntax-quote">'</span><span class="syntax-string-content">{experience.entity}</span><span class="syntax-quote">'</span>,
+                    <br />
+                    job:
+                    <span class="syntax-quote">'</span><span class="syntax-string-content">{experience.title}</span><span class="syntax-quote">'</span>,
+                    <br />
+                    period:
+                    {#if isPresent(experience.periods[0].startDate)}
+                        <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
+                    {:else}
+                        <span class="syntax-type-parameter">[</span><span class="syntax-keyword">new</span>
+                        <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{experience.periods[0].startDate}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
+                    {/if},
+                    {#if isPresent(experience.periods[0].endDate)}
+                        <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
+                    {:else}
+                        <span class="syntax-keyword">new</span>
+                        <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{experience.periods[0].endDate}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
+                    {/if}<span class="syntax-type-parameter">]</span>,
+                    <br />
+                    mainTasks:
+                    <span class="syntax-type-parameter">[</span>
+                    {#each experience.mainTasks as paragraph}
+                        <span class="summary">
+                            <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown(paragraph)}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
+                        </span>
+                    {/each}
+                    <span class="syntax-type-parameter">]</span>,
+                </div>
+                <span class="syntax-keyword">&rbrace;</span><span class="syntax-punctuation syntax-bracket">)</span>;
+                <br /><br />
+            {/each}
+            </span>
+            </div>
+        </code>
+        <code class="professional-code" aria-hidden="true"></code>
     </div>
 </div>
 
@@ -152,11 +152,12 @@
         line-height: 1.2;
     }
 
-    .professional > div:first-child {
+    .professional > div.professional-title {
         color: #fff;
-        background: linear-gradient(90deg, #08714f 0%, #47b481 86%, #fff 97.5%);
-        width: 295px;
-        padding: 5px 0 7px 8px;
+        background: linear-gradient(40deg, #08714f 0%, #08714f 67%, #47b481 80%, #fff 88.25%);
+        width: 650px;
+        margin-left: -284px;
+        padding: 5px 0 7px 285px;
     }
 
     .professional .techs {
