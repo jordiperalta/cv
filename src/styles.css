@@ -172,7 +172,8 @@ body {
   padding-top: 0;
 }
 
-.contact > div > span > a {
+.contact > div > span > a,
+.contact > div > span > .contact-link {
   font-size: .8175rem;
   color: #555;
   text-decoration: none;
@@ -183,7 +184,8 @@ body {
   transition: color 250ms;
 }
 
-.contact > div:hover > span > a {
+.contact > div:hover > span > a,
+.contact > div:hover > span > .contact-link {
   color: #485e88;
   text-shadow: #485e88 0 0 1px;
 }

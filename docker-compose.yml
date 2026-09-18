@@ -1,7 +1,7 @@
 services:
 
   dev:
-    container_name: svelte-cv
+    container_name: cv-dev
     build:
       context: .
       dockerfile: dev.Dockerfile
@@ -14,6 +14,7 @@ services:
       - dependencies:/node_modules
 
   bundle:
+    container_name: cv-bundle
     profiles:
       - build
     build:

@@ -60,3 +60,13 @@ Upload (push) the image:
 docker push jordiperalta/cv:1.0.0
 docker push quay.io/jordiperalta/cv:1.0.0
 ```
+
+## Run the containerized bundle
+
+Run the published image and map its HTTP port to port 8173 on your machine:
+
+```sh
+docker run --rm -p 8173:80 quay.io/jordiperalta/cv:latest
+```
+
+Open [http://localhost:8173](http://localhost:8173) in a browser. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop the container.

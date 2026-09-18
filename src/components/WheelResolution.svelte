@@ -66,6 +66,8 @@
   height: 16px;
   margin-top: -8px;
   padding: 0;
+  border: 0;
+  background: transparent;
   opacity: 0.15;
   transition: opacity 200ms ease;
   pointer-events: auto;
@@ -82,14 +84,20 @@
 
 .document-line-range::-webkit-slider-runnable-track {
   height: 2px;
-  background: #555555;
+  border: 0;
+  background-color: transparent;
   border-radius: 1px;
 }
 
 .document-line-range::-moz-range-track {
   height: 2px;
-  background: #555555;
+  border: 0;
+  background-color: transparent;
   border-radius: 1px;
+}
+
+.document-line-range::-moz-range-progress {
+  background-color: transparent;
 }
 
 .document-line-range::-webkit-slider-thumb {

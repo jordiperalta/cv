@@ -1,6 +1,6 @@
 <script>
     import { experienceData } from '../../data/experience'
-    import { aboutMe } from '../../data/professional'
+    import { aboutMe } from '../../data/about'
     import DOMPurify from 'dompurify'
     import { marked } from 'marked'
 
