@@ -11,7 +11,8 @@
   const resolutionMin = 20;
   const resolutionMiddle = 30;
   const resolutionMax = 120;
-  let resolution = (resolutionMin + resolutionMax) / 2;
+  const range = resolutionMax - resolutionMin;
+  let resolution = resolutionMin + (range * .25);
   let profileImage;
 
   function getPixelResolution(rangeValue) {
@@ -85,7 +86,7 @@
   <DocumentLine x1={61.15} y1={14.87} x2={67.45} y2={13.27} startXOffset={50} startColor="#555555" endColor="#555555"/>
   <DocumentLine x1={61.1} y1={13.35} x2={90} y2={13.35} startXOffset={50} startColor="#555555" endColor="#555555"/>
   <DocumentLine x1={83.6} y1={13.35} x2={98} y2={13.35} startXOffset={50} startColor="#555555" endColor="#55555500"/>
-  <WheelResolution x1={63} y1={13.25} x2={81.5} y2={13.25} startXOffset={50} endXOffset={50} min={resolutionMin} max={resolutionMax} bind:value={resolution} />
+  <WheelResolution x1={60.5} y1={13.25} x2={78} y2={13.25} startXOffset={50} endXOffset={50} min={resolutionMin} max={resolutionMax} bind:value={resolution} />
   <WheelArc size={size} startAngle={39} endAngle={132} color="#10AF40" />
   <WheelRadius inner={size} angle={39} length={95.5} color="#10AF40" />
   <!-- <DocumentLine x1={48.75} y1={14.5} x2={44.75} y2={17} startXOffset={0} startColor="#10AF40" endColor="#10AF40"/> -->

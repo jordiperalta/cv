@@ -22,10 +22,23 @@
   align-items: stretch;
 }
 
+.contact-icon {
+  flex: 0 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
 .info .contact-icon {
-    position: absolute;
-    top: 36px;
-    left: 8px;
+  position: absolute;
+  top: 36px;
+  left: 8px;
+  flex-basis: 30px;
+  width: 32px;
+  height: 32px;
+  fill: #666;
+  color: #ffffff;
 }
 
 </style>

@@ -18,7 +18,7 @@
     flex: 0 0 32px;
     display: flex;
     padding: 0 var(--history-header-padding-h, 4px) 2px;
-    background-color: #ffffffef;
+    background: linear-gradient(90deg,#ffffffdf 90%, #ffffffff 100%);
     transition: padding 350ms ease;
   }
 

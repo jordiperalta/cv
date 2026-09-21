@@ -1,10 +1,12 @@
 <script>
+  import { onMount } from 'svelte';
   import { personalData } from '../../data/personal.js';
   import Modal from './Modal.svelte';
   import DOMPurify from 'dompurify';
   import { marked } from 'marked';
 
   let quayDialogOpen = false;
+  let modalMarkdown;
   const markdownRenderer = new marked.Renderer();
   const renderLink = markdownRenderer.link.bind(markdownRenderer);
   const renderCode = markdownRenderer.code.bind(markdownRenderer);
@@ -75,6 +77,11 @@ Press \`Ctrl+C\` to stop the container.`;
       button.title = 'Copy command';
     }, 1500);
   }
+
+  onMount(() => {
+    modalMarkdown.addEventListener('click', copyCode);
+    return () => modalMarkdown.removeEventListener('click', copyCode);
+  });
 </script>
 
 <div class="contact">
@@ -114,7 +121,7 @@ Press \`Ctrl+C\` to stop the container.`;
 </div>
 
 <Modal bind:open={quayDialogOpen} title="Container Image">
-  <div class="modal-markdown" onclick={copyCode}>{@html renderMarkdown(modalContent)}</div>
+  <div bind:this={modalMarkdown} class="modal-markdown">{@html renderMarkdown(modalContent)}</div>
 </Modal>
 
 <style>

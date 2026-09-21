@@ -3,7 +3,7 @@
   import Content from './components/Content.svelte';
   import Document from './components/Document.svelte';
   import Header from './components/Header.svelte';
-  import Info from './components/Info.svelte';
+  import InfoLabel from './components/InfoLabel.svelte';
   import Life from './components/Life.svelte';
   import Location from './components/Location.svelte';
   import Main from './components/Main.svelte';
@@ -17,7 +17,7 @@
     <Main />
   </Content>
   <Location />
-  <Info />
+  <InfoLabel />
   <Contact />
   <Wheel />
 

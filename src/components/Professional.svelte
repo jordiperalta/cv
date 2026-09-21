@@ -19,13 +19,18 @@
 
     const isPresent = (time) => time === 'Present';
     const experienceLimit = 2;
+
+    const dateToDisplay = (string) => {
+        const date = new Date(string);
+        return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
 </script>
 
     <div class="professional">
         <div class="professional-title">{aboutMe.title}</div>
         <div class="techs">{aboutMe.subtitle}</div>
         <div class="professional-code-stack">
-        <code class="professional-code-copy">
+        <code class="professional-code-focus">
             <div class="code-content">
             <div class="experience-definition">
             <div class="declaration experience-types">
@@ -114,13 +119,13 @@
                         <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
                     {:else}
                         <span class="syntax-type-parameter">[</span><span class="syntax-keyword">new</span>
-                        <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{experience.periods[0].startDate}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
+                        <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{dateToDisplay(experience.periods[0].startDate)}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
                     {/if},
                     {#if isPresent(experience.periods[0].endDate)}
                         <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
                     {:else}
                         <span class="syntax-keyword">new</span>
-                        <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{experience.periods[0].endDate}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
+                        <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{dateToDisplay(experience.periods[0].endDate)}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
                     {/if}<span class="syntax-type-parameter">]</span>,
                     <br />
                     mainTasks:
@@ -196,32 +201,36 @@
         border-top: #b3c0d0 12px solid;
     }
 
-    .professional-code-copy {
+    .professional-code-focus {
         position: relative;
         z-index: 2;
         background-color: transparent;
         border: transparent 2px solid;
         border-top: transparent 12px solid;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.4);
         transition: color 350ms ease,
             background-color 700ms ease,
             border 300ms ease,
             border-top 300ms ease,
+            box-shadow 300ms ease,
             z-index 0s linear 700ms;
     }
 
-    .professional-code-copy:hover {
+    .professional-code-focus:hover {
         z-index: 40;
         background-color: #283547;
         border: #b3c0d0 2px solid;
         border-top: #b3c0d0 12px solid;
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.4);
         transition: color 350ms ease,
-            background-color 700ms ease,
+            background-color 350ms ease,
             border 350ms ease,
             border-top 350ms ease,
+            box-shadow 300ms ease,
             z-index 0s;
     }
 
-    .professional-code-copy::before {
+    .professional-code-focus::before {
         content: '';
         position: absolute;
         top: 0;
@@ -232,7 +241,7 @@
         transition: border-color 350ms ease;
     }
 
-    .professional-code-copy:hover::before {
+    .professional-code-focus:hover::before {
         border-color: #93c5fd3f;
     }
 
@@ -313,39 +322,39 @@
         font-weight: 400;
     }
 
-    .professional-code-copy .syntax-operator,
-    .professional-code-copy .syntax-punctuation,
-    .professional-code-copy .syntax-string-content,
-    .professional-code-copy .syntax-quote {
+    .professional-code-focus .syntax-operator,
+    .professional-code-focus .syntax-punctuation,
+    .professional-code-focus .syntax-string-content,
+    .professional-code-focus .syntax-quote {
         transition: color 350ms ease;
     }
 
-    .professional-code-copy:hover {
+    .professional-code-focus:hover {
         color: #f8fafc;
     }
 
-    .professional-code-copy:hover .syntax-operator,
-    .professional-code-copy:hover .syntax-punctuation:not(.syntax-bracket) {
+    .professional-code-focus:hover .syntax-operator,
+    .professional-code-focus:hover .syntax-punctuation:not(.syntax-bracket) {
         color: #d1d5db;
     }
 
-    .professional-code-copy:hover .syntax-string-content,
-    .professional-code-copy:hover .summary .syntax-quote {
+    .professional-code-focus:hover .syntax-string-content,
+    .professional-code-focus:hover .summary .syntax-quote {
         color: #93c5fd;
     }
 
-    .professional-code-copy:hover .syntax-keyword {
+    .professional-code-focus:hover .syntax-keyword {
         color: #d657d4;
     }
 
-    .professional-code-copy :global(a) {
+    .professional-code-focus :global(a) {
         font-weight: 600;
         color: #3867aa;
         text-decoration: none;
         transition: color 350ms ease;
     }
 
-    .professional-code-copy:hover :global(a) {
+    .professional-code-focus:hover :global(a) {
         color: #bcd2ec;
     }
 </style>

@@ -29,13 +29,15 @@
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(to bottom, #b8c0d1cf, #fcfdfedf);
-    transition: flex-basis 350ms ease, margin-right 350ms ease, padding-left 350ms ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: flex-basis 350ms ease, margin-right 350ms ease, padding-left 350ms ease, box-shadow 200ms ease-in-out;
   }
 
   .history.history-hover {
     flex-basis: calc(35% + var(--history-hover-swing) + var(--history-hover-swing));
     margin-right: calc(0px - var(--history-hover-swing) - var(--history-hover-swing));
     z-index: 3;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.4);
   }
 
 </style>

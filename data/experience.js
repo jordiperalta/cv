@@ -62,7 +62,7 @@ export const experienceData = [
     ],
   },
   {
-    title: 'Handling Operatorr (Aeroport de Barcelona).',
+    title: 'Handling Operator (Aeroport de Barcelona).',
     entity: 'Airport Ground Assistance',
     location: 'El Prat de Llobregat, ES',
     periods: [
