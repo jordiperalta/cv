@@ -17,8 +17,9 @@
     <Main />
   </Content>
   <Location />
-  <InfoLabel />
-  <Contact />
+  <InfoLabel>
+    <Contact />
+  </InfoLabel>
   <Wheel />
 
 </Document>

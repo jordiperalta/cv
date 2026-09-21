@@ -62,32 +62,6 @@ body {
   cursor: default;
 }
 
-.header {
-  flex: 0 0 12.5%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: #ffffff;
-  background-image: linear-gradient(125deg, #485e88 0%, #485e88 7.5%, #6e7fa1 20%,#ffffff 45%);
-}
-
-.header p {
-  margin: 0;
-  padding: .5rem .75rem;
-  line-height: 1.125;
-  font-size: 3.25rem;
-  font-weight: 300;
-}
-
-.location {
-  position: absolute;
-  top: 10px;
-  right: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
 .professional {
   margin: 4.35rem .5rem 0;
   font-size: 1.25rem;
@@ -108,22 +82,9 @@ body {
   color: #08714f;
 }
 
-.professional p {
-  margin: .5rem .125em 0;
-  font-size: .875rem;
-}
-
-.professional code {
-  font-size: .75rem;
-  font-weight: 300;
-  background-color: #dde3ef;
-  margin: 0 -10px 0 -15px;
-  padding: 12px 8px 12px 16px;
-}
-
 .contact > div,
 .location > div,
-.info > div {
+.info-label {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -139,7 +100,7 @@ body {
   font-size: 1rem;
 }
 
-.info .contact-icon {
+.info-label .contact-icon {
   flex-basis: 30px;
   width: 26px;
   height: 26px;
@@ -147,7 +108,7 @@ body {
   color: #ffffff;
 }
 
-.info > div > span {
+.info-label > span {
   font-weight: 350;
   color: #555;
   padding: 0 2px 1px;
@@ -192,31 +153,6 @@ body {
 
 .contact > div:hover > i {
   color: #485e88;
-}
-
-.location > div > span {
-  margin-top: -5px;
-  line-height: 1.1;
-  color: #cc1931;
-  text-decoration: none;
-  text-align: right;
-}
-
-.location .contact-icon {
-  flex: 0 0 32px;
-  height: 28px;
-  width: 28px;
-  margin: 4px;
-  color: #cc1931;
-}
-
-.header .qr-code {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  .asini-qr {
-    margin: 5px;
-  }
 }
 
 .content {
@@ -445,9 +381,36 @@ body {
 }
 
 
-@media screen and (max-width: 559px) {
+@media screen and (max-width: 600px) {
   main.document {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
     margin: 0;
+  }
+
+  .header {
+    flex: 0 0 100px;
+  }
+
+  .wheel {
+    display: none;
+  }
+
+  .content {
+    flex: none;
+    flex-direction: column;
+  }
+
+  main.document .professional-code-stack {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  main.document .professional code {
+    height: auto;
   }
 
   button.print-button {

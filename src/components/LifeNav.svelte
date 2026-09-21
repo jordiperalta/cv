@@ -392,4 +392,15 @@
 
   .history-divider:first-child { min-height: 30px; }
   .history-divider-year { position: relative; z-index: 1; width: 100%; text-align: center; transform: rotate(-90deg); font-size: .625rem; color: #e3e6ee; transition: color 200ms ease; }
+
+  @media screen and (max-width: 600px) {
+    .history-main {
+      border-right: none;
+      min-height: 725px;
+    }
+
+    .history-main.history-hover {
+      padding: 0;
+    }
+  }
 </style>

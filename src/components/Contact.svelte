@@ -127,11 +127,20 @@ Press \`Ctrl+C\` to stop the container.`;
 <style>
 .contact {
   position: absolute;
-  top: 160px;
-  right: 20px;
+  top: 39px;
+  right: -150px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 600px) {
+  .contact {
+    position: relative;
+    top: 0;
+    right: 2px;
+    padding-bottom: 12px;
+  }
 }
 
 .contact-link {

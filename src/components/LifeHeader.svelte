@@ -45,4 +45,24 @@
   .history-header-section span { padding: 0 2px; transform: scaleX(.925); }
   .history-header-section :global(svg) { color: #485e88; width: 16px; height: 16px; stroke-width: 1.75; }
   .history-header-section.header-education :global(svg) { width: 19px; height: 19px; }
+
+  @media screen and (max-width: 600px) {
+    .history-header {
+      background: #e3e6ed;
+    }
+
+    .history-header.history-hover {
+      padding: 0 var(--history-header-padding-h, 4px) 2px;
+    }
+
+    .history-header,
+    .history-header-section {
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+
+    .history-header-section {
+      padding: 0 6px;
+    }
+  }
 </style>

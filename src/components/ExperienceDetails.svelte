@@ -44,3 +44,14 @@
     </div>
   {/each}
 </div>
+
+<style>
+  @media screen and (max-width: 600px) {
+    .experience-details .details-card.details-card {
+      width: calc(100% - 7px);
+      max-width: 170px;
+      margin-left: auto;
+      margin-right: 3px;
+    }
+  }
+</style>

@@ -50,8 +50,10 @@
   .history-footer {
     flex: 0 0 125px;
     width: 100%;
+    max-width: 285px;
     position: relative;
     display: flex;
+    padding: 0;
     min-width: 0;
     align-self: flex-end;
     align-items: flex-end;
@@ -74,4 +76,15 @@
   .history-footer svg:hover .language-arc.read { animation: draw-language-arc 750ms ease 250ms both; }
   .history-footer svg:hover .language-arc.speak { animation: draw-language-arc 750ms ease 500ms both; }
   @keyframes draw-language-arc { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+
+  @media screen and (max-width: 600px) {
+    .history-footer {
+      border-right: none;
+      align-self: center;
+    }
+
+    .history-footer.history-hover {
+      padding: 0;
+    }
+  }
 </style>

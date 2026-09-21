@@ -55,3 +55,14 @@
     </div>
   {/each}
 </div>
+
+<style>
+  @media screen and (max-width: 600px) {
+    .education-details .details-card.details-card {
+      width: calc(100% - 7px);
+      max-width: 170px;
+      margin-right: auto;
+      margin-left: 3px;
+    }
+  }
+</style>

@@ -268,7 +268,7 @@
 
     .summary {
         display: block;
-        padding-left: 1.125em;
+        padding-left: 2ch;
         margin-top: .375em;
     }
 
@@ -356,5 +356,33 @@
 
     .professional-code-focus:hover :global(a) {
         color: #bcd2ec;
+    }
+
+    @media screen and (max-width: 600px) {
+        .professional {
+            order: -1;
+            flex: none;
+            width: calc(100% - 1rem);
+            margin: 1px .5rem 1rem;
+        }
+
+        .professional > div.professional-title {
+            width: calc(100% + 1rem);
+            margin-left: -.5rem;
+            padding: 5px 8px 7px;
+            background: linear-gradient(40deg, #08714f 0%, #08714f 60%, #47b481 78%, #fff 88.25%);
+        }
+
+        .professional code {
+            padding: 1ch;
+        }
+
+        .professional code .indentation {
+            padding-left: 2ch;
+        }
+
+        .summary {
+            padding-left: 2ch;
+        }
     }
 </style>
