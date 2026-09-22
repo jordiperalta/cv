@@ -46,7 +46,7 @@
 
 @media screen and (max-width: 600px) {
   .info {
-    margin-top: 12px;
+    margin: 12px 0;
     padding: 0 10px;
     position: relative;
     display: flex;
@@ -61,7 +61,7 @@
   }
 
   .info-label .contact-icon {
-    top: -4px;
+    top: -5px;
     left: -34px;
   }
 }

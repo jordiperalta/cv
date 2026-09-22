@@ -130,10 +130,10 @@
 
 @media screen and (max-width: 600px) {
   .contact {
-    position: relative;
+    position: absolute;
     top: 0;
-    right: 2px;
-    padding-bottom: 12px;
+    right: 10px;
+    margin-bottom: 8px;
   }
 }
 
