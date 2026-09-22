@@ -43,7 +43,7 @@
     >
       <div class="details-card-accent" style={`--accent-color: ${color}`}></div>
       <div class="details-card-dates">
-        <span class="timeline-card-year">{start.year}</span>{start.month}-
+        <span class="timeline-card-year">{start.year}</span>{start.month} |
         {#if end.isPresent}
           <b>Present</b>
         {:else}

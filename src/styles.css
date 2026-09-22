@@ -5,35 +5,35 @@
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawk.ttf") format("truetype");
+  src: url("../fonts/selawk.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawkb.ttf") format("truetype");
+  src: url("../fonts/selawkb.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawkl.ttf") format("truetype");
+  src: url("../fonts/selawkl.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawksb.ttf") format("truetype");
+  src: url("../fonts/selawksb.ttf") format("truetype");
   font-style: normal;
   font-weight: 600;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawksl.ttf") format("truetype");
+  src: url("../fonts/selawksl.ttf") format("truetype");
   font-style: normal;
   font-weight: 350;
 }
@@ -75,13 +75,6 @@ body {
   padding: 5px 0 7px 8px;
 }
 
-.professional .techs {
-  margin: .3125rem 0.125em;
-  font-size: .875rem;
-  font-weight: 600;
-  color: #08714f;
-}
-
 .contact > div,
 .location > div,
 .info-label {
@@ -91,21 +84,7 @@ body {
 }
 
 .contact-icon {
-  flex: 0 0 25px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   color: #666;
-  font-size: 1rem;
-}
-
-.info-label .contact-icon {
-  flex-basis: 30px;
-  width: 26px;
-  height: 26px;
-  fill: #666;
-  color: #ffffff;
 }
 
 .info-label > span {
@@ -433,9 +412,5 @@ body {
 
   .print-button {
     display: none;
-  }
-
-  .document-line-range {
-    opacity: 0;
   }
 }

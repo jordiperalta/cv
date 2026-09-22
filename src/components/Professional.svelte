@@ -3,9 +3,13 @@
     import { aboutMe } from '../../data/about'
     import DOMPurify from 'dompurify'
     import { marked } from 'marked'
+    import { addSlashBreaks } from '../utils/markdown.js'
 
     const markdownRenderer = new marked.Renderer()
     const renderLink = markdownRenderer.link.bind(markdownRenderer)
+    const renderText = markdownRenderer.text.bind(markdownRenderer)
+
+    markdownRenderer.text = (token) => addSlashBreaks(renderText(token))
 
     markdownRenderer.link = (token) => renderLink(token).replace(
         '<a ',
@@ -369,8 +373,13 @@
         .professional > div.professional-title {
             width: calc(100% + 1rem);
             margin-left: -.5rem;
-            padding: 5px 8px 7px;
-            background: linear-gradient(40deg, #08714f 0%, #08714f 60%, #47b481 78%, #fff 88.25%);
+            padding: 5px 15px 7px;
+            background: linear-gradient(40deg, #08714f 0%, #08714f 42%, #40ba81 70%, #fff 87.25%);
+        }
+
+        .professional > div.techs {
+
+            padding: 2px 4px;
         }
 
         .professional code {

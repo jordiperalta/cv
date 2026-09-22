@@ -39,7 +39,6 @@
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(to bottom, #b8c0d1cf, #fcfdfedf);
-    border-radius: 16px;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     transition: flex-basis 350ms ease, margin-right 350ms ease, padding-left 350ms ease, box-shadow 200ms ease-in-out;
   }
@@ -60,6 +59,7 @@
       margin-top: 4px;
       margin-inline: auto;
       border: #b3c0d0 2px solid;
+      border-radius: 16px;
     }
 
     .history.history-hover {

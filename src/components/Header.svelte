@@ -1,6 +1,14 @@
 <script>
   import { personalData } from '../../data/personal.js';
   import QRcode from './QRcode.svelte'
+  import Modal from './Modal.svelte';
+
+  let qrDialogOpen = false;
+
+  function openQrModal(event) {
+    event.preventDefault();
+    qrDialogOpen = true;
+  }
 </script>
 
 <div class="header">
@@ -9,7 +17,10 @@
   </div>
   <div class="qr-code">
     {#if personalData.website}
-      <a href={`https://${personalData.website}`} target="_blank" rel="noopener noreferrer">
+      <a class="qr-screen-link" href={`https://${personalData.website}`} target="_blank" rel="noopener noreferrer" onclick={openQrModal}>
+        <QRcode/>
+      </a>
+      <a class="qr-print-link" href={`https://${personalData.website}`} target="_blank" rel="noopener noreferrer">
         <QRcode/>
       </a>
     {:else}
@@ -17,6 +28,17 @@
     {/if}
   </div>
 </div>
+
+<Modal bind:open={qrDialogOpen}>
+  <div class="qr-modal-code">
+    <QRcode />
+  </div>
+  <p>
+    Scan the <b>QR Code</b> or click on this
+    <b><a href={`https://${personalData.website}`} target="_blank" rel="noopener noreferrer">link</a></b>
+    to open in a new window. 
+  </p>
+</Modal>
 
 <style>
   .header {
@@ -36,12 +58,36 @@
     font-weight: 300;
   }
 
-  .qr-code {
+  .header .qr-code {
     --qr-background: #ffffff3f;
+    padding: 10px 10px 0;
+  }
+
+  .qr-print-link {
+    display: none;
   }
 
   .qr-code :global(svg rect) {
     fill: var(--qr-background);
+  }
+
+  :global(.modal-content) p {
+    font-size: 1rem;
+    font-weight: 350;
+    text-align: center;
+  }
+
+  .qr-modal-code {
+    --qr-modal-size: 300px;
+    margin: 0 auto;
+    height: var(--qr-modal-size);
+    width: var(--qr-modal-size);
+  }
+
+  .qr-modal-code :global(svg) {
+    margin: 0 auto;
+    height: var(--qr-modal-size);
+    width: var(--qr-modal-size);
   }
 
   @media screen and (max-width: 600px) {
@@ -54,14 +100,24 @@
     }
 
     .header .qr-code {
-      --qr-background: #ffffff0f;
-      padding: 4px;
-      opacity: .125;
+      --qr-background: #ffffff0a;
+      padding: 6px 4px 2px;
+      opacity: .05;
       transition: opacity 350ms ease-in-out;
     }
 
     .header:hover .qr-code {
-      opacity: 1;
+      opacity: .85;
+    }
+  }
+
+  @media print {
+    .qr-screen-link {
+      display: none;
+    }
+
+    .qr-print-link {
+      display: inline-block;
     }
   }
 </style>

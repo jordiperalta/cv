@@ -4,12 +4,16 @@
   import Modal from './Modal.svelte';
   import DOMPurify from 'dompurify';
   import { marked } from 'marked';
+  import { addSlashBreaks } from '../utils/markdown.js';
 
   let quayDialogOpen = false;
   let modalMarkdown;
   const markdownRenderer = new marked.Renderer();
   const renderLink = markdownRenderer.link.bind(markdownRenderer);
   const renderCode = markdownRenderer.code.bind(markdownRenderer);
+  const renderText = markdownRenderer.text.bind(markdownRenderer);
+
+  markdownRenderer.text = (token) => addSlashBreaks(renderText(token));
 
   markdownRenderer.link = (token) => renderLink(token).replace(
     '<a ',
@@ -171,7 +175,7 @@ Press \`Ctrl+C\` to stop the container.`;
   font-weight: 400;
 }
 :global(.modal-content p) {
-  font-size: .75rem;
+  font-size: .875rem;
 }
 :global(.modal-content a),
 :global(.modal-content a:visited) {
@@ -188,12 +192,15 @@ Press \`Ctrl+C\` to stop the container.`;
   background-color: #ededef;
   border: #ccc .5px solid;
   border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 :global(.modal-code-block) {
   position: relative;
 }
 :global(.modal-code-block pre) {
-  padding-right: 2.5rem;
+  padding-right: 1.75rem;
 }
 :global(.copy-code-button) {
   position: absolute;

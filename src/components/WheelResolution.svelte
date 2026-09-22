@@ -74,6 +74,12 @@
   transform-origin: 0 50%;
 }
 
+@media print {
+  .document-line-range {
+    opacity: 0;
+  }
+}
+
 .wheel-range-layer:hover .document-line-range {
   opacity: 1;
 }

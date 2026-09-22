@@ -31,7 +31,7 @@
         {@const start = formatYearMonth(period.startDate)}
         {@const end = formatYearMonth(period.endDate)}
         <div class="details-card-dates">
-          <span class="timeline-card-year">{start.year}</span>{start.month}-
+          <span class="timeline-card-year">{start.year}</span>{start.month} |
           {#if end.isPresent}
             <b>Present</b>
           {:else}
