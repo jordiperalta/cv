@@ -1,14 +1,16 @@
 <script>
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
   export let historyHover = false;
 </script>
 
 <div class:history-hover={historyHover} class="history-header">
   <div class="history-header-section header-experience">
     <i data-lucide="pickaxe" aria-hidden="true"></i>
-    <span>Experience</span>
+    <span>{$_(commonLabels.experience)}</span>
   </div>
   <div class="history-header-section header-education">
-    <span>Education & Courses</span>
+    <span>{$_(commonLabels.educationCourses)}</span>
     <i data-lucide="graduation-cap" aria-hidden="true"></i>
   </div>
 </div>

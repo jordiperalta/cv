@@ -1,5 +1,7 @@
 <script>
   import { experienceData } from '../../data/experience.js';
+  import { commonLabels } from '../../data/common.js';
+  import { _ } from 'svelte-i18n';
 
   export let rainbowColors;
 
@@ -33,14 +35,14 @@
         <div class="details-card-dates">
           <span class="timeline-card-year">{start.year}</span>{start.month} |
           {#if end.isPresent}
-            <b>Present</b>
+            <b>{$_(commonLabels.present)}</b>
           {:else}
             <span class="timeline-card-year">{end.year}</span>{end.month}
           {/if}
         </div>
       {/each}
-      <div class="timeline-card-entity">{record.entity}</div>
-      <div class="timeline-card-title">{record.title}</div>
+      <div class="timeline-card-entity">{$_(record.entity)}</div>
+      <div class="timeline-card-title">{$_(record.title)}</div>
     </div>
   {/each}
 </div>

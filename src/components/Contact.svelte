@@ -1,10 +1,13 @@
 <script>
   import { onMount } from 'svelte';
   import { personalData } from '../../data/personal.js';
+  import { commonLabels, contactModalContent } from '../../data/common.js';
+  import { _ } from 'svelte-i18n';
   import Modal from './Modal.svelte';
   import DOMPurify from 'dompurify';
   import { marked } from 'marked';
   import { addSlashBreaks } from '../utils/markdown.js';
+  import { get } from 'svelte/store';
 
   let quayDialogOpen = false;
   let modalMarkdown;
@@ -22,7 +25,7 @@
 
   markdownRenderer.code = (token) => `
     <div class="modal-code-block">
-      <button class="copy-code-button" type="button" aria-label="Copy command" title="Copy command">
+      <button class="copy-code-button" type="button" aria-label={$_(commonLabels.copyCommand)} title={$_(commonLabels.copyCommand)}>
         <i class="fa-regular fa-copy" aria-hidden="true"></i>
       </button>
       ${renderCode(token)}
@@ -33,22 +36,9 @@
     { ADD_ATTR: ['target', 'rel'] }
   );
 
-  const modalContent = `
-This CV-Portfolio is available as a container image ([Docker](https://www.docker.com/)/[Podman](https://podman.io/)). 
-You can explore the repository in [${personalData.docker}](https://${personalData.docker}).
-If you like to, you can also run the published image locally following the instructions below.
-
----
-
-Run the image and map its HTTP port to port 8173 on your machine:
-
-\`\`\`sh
-docker run --rm -p 8173:80 ${personalData.docker}
-\`\`\`
-
-Open [http://localhost:8173](http://localhost:8173) in a browser. 
-
-Press \`Ctrl+C\` to stop the container.`;
+  $: modalContent = $_(contactModalContent, {
+    values: { docker: personalData.docker },
+  });
 
   async function copyCode(event) {
     const target = event.target;
@@ -72,13 +62,13 @@ Press \`Ctrl+C\` to stop the container.`;
     }
 
     button.classList.add('copied');
-    button.setAttribute('aria-label', 'Command copied');
-    button.title = 'Copied';
+    button.setAttribute('aria-label', get(_)(commonLabels.commandCopied));
+    button.title = get(_)(commonLabels.commandCopied);
 
     setTimeout(() => {
       button.classList.remove('copied');
-      button.setAttribute('aria-label', 'Copy command');
-      button.title = 'Copy command';
+      button.setAttribute('aria-label', get(_)(commonLabels.copyCommand));
+      button.title = get(_)(commonLabels.copyCommand);
     }, 1500);
   }
 
@@ -124,7 +114,7 @@ Press \`Ctrl+C\` to stop the container.`;
   {/if}
 </div>
 
-<Modal bind:open={quayDialogOpen} title="Container Image">
+  <Modal bind:open={quayDialogOpen} title={$_(commonLabels.containerImage)}>
   <div bind:this={modalMarkdown} class="modal-markdown">{@html renderMarkdown(modalContent)}</div>
 </Modal>
 
@@ -132,7 +122,7 @@ Press \`Ctrl+C\` to stop the container.`;
 .contact {
   position: absolute;
   top: 39px;
-  right: -150px;
+  left: 62px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

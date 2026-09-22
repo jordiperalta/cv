@@ -1,4 +1,6 @@
-export const educationData = [
+import { localized } from './i18n.js';
+
+const educationRecords = [
   {
     title: 'Training Capsules: Redis, TypeScript, AWS, Go',
     entity: 'BarcelonActiva Cibernarium',
@@ -80,3 +82,21 @@ export const educationData = [
     ],
   },
 ];
+
+export const educationData = educationRecords.map((record, recordIndex) => ({
+  ...record,
+  title: localized(`education.${recordIndex}.title`, { en: record.title }),
+  entity: localized(`education.${recordIndex}.entity`, { en: record.entity }),
+  location: localized(`education.${recordIndex}.location`, { en: record.location }),
+  periods: record.periods.map((period, periodIndex) => ({
+    ...period,
+    ...(period.description
+      ? {
+          description: localized(
+            `education.${recordIndex}.period.${periodIndex}.description`,
+            { en: period.description },
+          ),
+        }
+      : {}),
+  })),
+}));

@@ -1,8 +1,10 @@
 <script>
     import { experienceData } from '../../data/experience'
     import { aboutMe } from '../../data/about'
+    import { commonLabels } from '../../data/common.js'
     import DOMPurify from 'dompurify'
     import { marked } from 'marked'
+    import { _ } from 'svelte-i18n'
     import { addSlashBreaks } from '../utils/markdown.js'
 
     const markdownRenderer = new marked.Renderer()
@@ -31,8 +33,8 @@
 </script>
 
     <div class="professional">
-        <div class="professional-title">{aboutMe.title}</div>
-        <div class="techs">{aboutMe.subtitle}</div>
+        <div class="professional-title">{$_(aboutMe.title)}</div>
+        <div class="techs">{$_(aboutMe.subtitle)}</div>
         <div class="professional-code-stack">
         <code class="professional-code-focus">
             <div class="code-content">
@@ -44,7 +46,7 @@
                     <span class="syntax-operator">=</span>
                     <span class="syntax-type-parameter">Date</span>
                     <span class="syntax-punctuation syntax-bracket">|</span>
-                    <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span><span class="syntax-punctuation syntax-structure">;</span>
+                    <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(commonLabels.present)}</span><span class="syntax-quote">'</span><span class="syntax-punctuation syntax-structure">;</span>
                 </span>
                 <br/>
                 <span class="declaration">
@@ -103,7 +105,7 @@
             </span>
             {#each aboutMe.summary as paragraph}
                 <span class="summary">
-                    <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown(paragraph)}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
+                    <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown($_(paragraph))}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
                 </span>
             {/each}
             <span class="syntax-punctuation syntax-structure syntax-bracket">]</span><span class="syntax-punctuation syntax-structure">;</span>
@@ -113,20 +115,20 @@
                 <span class="syntax-constant">professionalExp.add</span><span class="syntax-punctuation syntax-bracket">(</span><span class="syntax-keyword">&lbrace;</span>
                 <div class="indentation">
                     company:
-                    <span class="syntax-quote">'</span><span class="syntax-string-content">{experience.entity}</span><span class="syntax-quote">'</span>,
+                    <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(experience.entity)}</span><span class="syntax-quote">'</span>,
                     <br />
                     job:
-                    <span class="syntax-quote">'</span><span class="syntax-string-content">{experience.title}</span><span class="syntax-quote">'</span>,
+                    <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(experience.title)}</span><span class="syntax-quote">'</span>,
                     <br />
                     period:
                     {#if isPresent(experience.periods[0].startDate)}
-                        <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
+                        <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(commonLabels.present)}</span><span class="syntax-quote">'</span>
                     {:else}
                         <span class="syntax-type-parameter">[</span><span class="syntax-keyword">new</span>
                         <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{dateToDisplay(experience.periods[0].startDate)}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
                     {/if},
                     {#if isPresent(experience.periods[0].endDate)}
-                        <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
+                        <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(commonLabels.present)}</span><span class="syntax-quote">'</span>
                     {:else}
                         <span class="syntax-keyword">new</span>
                         <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{dateToDisplay(experience.periods[0].endDate)}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
@@ -136,7 +138,7 @@
                     <span class="syntax-type-parameter">[</span>
                     {#each experience.mainTasks as paragraph}
                         <span class="summary">
-                            <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown(paragraph)}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
+                            <span class="syntax-quote">"</span><span class="syntax-string-content">{@html renderMarkdown($_(paragraph))}</span><span class="syntax-quote">"</span><span class="syntax-punctuation syntax-structure">,</span>
                         </span>
                     {/each}
                     <span class="syntax-type-parameter">]</span>,

@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
 
   onMount(() => window.lucide?.createIcons());
 </script>
@@ -7,7 +9,7 @@
 <div class="info">
     <div class="info-label">
         <i data-lucide="info" class="contact-icon" aria-hidden="true"></i>
-        <span>Contact Info</span>
+        <span>{$_(commonLabels.contactInfo)}</span>
     </div>
     <slot />
 </div>
@@ -17,7 +19,7 @@
 .info {
   position: absolute;
   top: 121px;
-  right: 170px;
+  left: 532px;
   display: flex;
   flex-direction: column;
   align-items: stretch;

@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
 
   export let x1 = 0;
   export let y1 = 0;
@@ -55,7 +57,7 @@
     max={max}
     step="1"
     bind:value
-    aria-label="Image pixelation resolution"
+    aria-label={$_(commonLabels.imagePixelationResolution)}
   />
 </div>
 

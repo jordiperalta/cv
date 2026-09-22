@@ -1,4 +1,6 @@
 <script>
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
   import ExperienceDetails from './ExperienceDetails.svelte';
 
   export let timelineElement;
@@ -8,7 +10,7 @@
 </script>
 
 <div class="history-main-left">
-  <div bind:this={timelineElement} class="experience-timeline" aria-label="Professional experience timeline">
+  <div bind:this={timelineElement} class="experience-timeline" aria-label={$_(commonLabels.professionalTimeline)}>
     {#each periods as period (period.id)}
       <div
         class="experience-period"

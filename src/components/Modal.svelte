@@ -1,4 +1,6 @@
 <script>
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
   export let open = false;
   export let title = '';
 
@@ -36,7 +38,7 @@
   <div class="modal-content">
     <header>
       <h2 id="modal-title">{title}</h2>
-      <button class="close-button" type="button" aria-label="Close dialog" onclick={close}>
+      <button class="close-button" type="button" aria-label={$_(commonLabels.closeDialog)} onclick={close}>
         &times;
       </button>
     </header>

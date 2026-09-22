@@ -5,6 +5,8 @@
   import WheelResolution from './WheelResolution.svelte';
   import DocumentLine from './DocumentLine.svelte';
   import profileUrl from '../../assets/profile.jpg';
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
 
   let canvas;
   const size = 120;
@@ -68,7 +70,7 @@
       class="wheel-profile"
       width={size}
       height={size}
-      aria-label="Pixelated profile"
+      aria-label={$_(commonLabels.pixelatedProfile)}
     ></canvas>
   </div>
    

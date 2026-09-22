@@ -12,7 +12,8 @@
     "bits-ui": "^2.19.2",
     "dompurify": "^3.4.15",
     "marked": "^18.0.12",
-    "svelte": "^5.0.0"
+    "svelte": "^5.0.0",
+    "svelte-i18n": "^4.0.1"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.0",

@@ -1,5 +1,7 @@
 <script>
   import { personalData } from '../../data/personal.js';
+  import { commonLabels } from '../../data/common.js';
+  import { _ } from 'svelte-i18n';
   import QRcode from './QRcode.svelte'
   import Modal from './Modal.svelte';
 
@@ -34,9 +36,9 @@
     <QRcode />
   </div>
   <p>
-    Scan the <b>QR Code</b> or click on this
-    <b><a href={`https://${personalData.website}`} target="_blank" rel="noopener noreferrer">link</a></b>
-    to open in a new window. 
+    {$_(commonLabels.scanQrCode)} <b>{$_(commonLabels.qrCode)}</b> {$_(commonLabels.orClick)}
+    <b><a href={`https://${personalData.website}`} target="_blank" rel="noopener noreferrer">{$_(commonLabels.link)}</a></b>
+    {$_(commonLabels.openNewWindow)}.
   </p>
 </Modal>
 

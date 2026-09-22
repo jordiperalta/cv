@@ -1,4 +1,6 @@
 <script>
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../data/common.js';
   import Contact from './components/Contact.svelte';
   import Content from './components/Content.svelte';
   import Document from './components/Document.svelte';
@@ -25,5 +27,5 @@
 </Document>
 
 <button class="print-button" type="button" onclick={() => window.print()}>
-  Save as PDF
+  {$_(commonLabels.saveAsPdf)}
 </button>
