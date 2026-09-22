@@ -24,8 +24,8 @@ export const aboutMe = {
         }),
         localized('about.summary.2', {
             en: "I currently work in the **medical imaging and healthcare software** sector, developing applications and deploying them both in **customer environments** (over Linux Ubuntu/RHEL/CentOS) and **cloud infrastructures** using **AWS**.",
-            es: "Actualmente trabajo en el sector del **software de imagen médica y sanitario**, desarrollando aplicaciones y desplegándolas tanto en **entornos de clientes** (sobre Linux Ubuntu/RHEL/CentOS) como en **infraestructuras cloud** mediante **AWS**.",
-            ca: "Actualment treballo en el sector del **programari d'imatge mèdica i sanitari**, desenvolupant aplicacions i desplegant-les tant en **entorns de clients** (sobre Linux Ubuntu/RHEL/CentOS) com en **infraestructures cloud** mitjançant **AWS**.",
+            es: "Actualmente trabajo en el sector del **software de imagen médica y sanitario**, desarrollando aplicaciones y desplegándolas tanto en **entornos de clientes** (sobre Linux Ubuntu/RHEL/CentOS) como en **infraestructuras cloud** con **AWS**.",
+            ca: "Actualment treballo en el sector del ***software* d'imatge mèdica i sanitari**, desenvolupant aplicacions i desplegant-les tant en **entorns de clients** (sobre Linux Ubuntu/RHEL/CentOS) com en **infraestructures cloud** amb **AWS**.",
         }),
     ],
 }

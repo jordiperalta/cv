@@ -30,6 +30,8 @@
 <style>
   .history {
     --history-hover-swing: 8px;
+    --history-hover-duration: 350ms;
+    --history-hover-easing: ease;
     --history-header-padding-h: 4px;
     flex: 0 0 35%;
     height: 100%;
@@ -40,7 +42,11 @@
     flex-direction: column;
     background-image: linear-gradient(to bottom, #b8c0d1cf, #fcfdfedf);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    transition: flex-basis 350ms ease, margin-right 350ms ease, padding-left 350ms ease, box-shadow 200ms ease-in-out;
+    transition:
+      flex-basis var(--history-hover-duration) var(--history-hover-easing),
+      margin-right var(--history-hover-duration) var(--history-hover-easing),
+      padding-left var(--history-hover-duration) var(--history-hover-easing),
+      box-shadow 200ms ease-in-out;
   }
 
   .history.history-hover {
