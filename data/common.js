@@ -3,7 +3,7 @@ import { localized } from './i18n.js';
 export const commonLabels = {
   language: localized('common.language', { en: 'Language', es: 'Idioma', ca: 'Llengua' }),
   experience: localized('common.experience', { en: 'Experience', es: 'Experiencia', ca: 'Experiència' }),
-  educationCourses: localized('common.educationCourses', { en: 'Education & Courses', es: 'Educación y cursos', ca: 'Educació i cursos' }),
+  educationCourses: localized('common.educationCourses', { en: 'Education & Courses', es: 'Formación y cursos', ca: 'Formació i cursos' }),
   contactInfo: localized('common.contactInfo', { en: 'Contact Info', es: 'Info. contacto', ca: 'Info. contacte' }),
   saveAsPdf: localized('common.saveAsPdf', { en: 'Save as PDF', es: 'Guardar como PDF', ca: 'Desar com a PDF' }),
   present: localized('common.present', { en: 'Present', es: 'Actualidad', ca: 'Actualitat' }),

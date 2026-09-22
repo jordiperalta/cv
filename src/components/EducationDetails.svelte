@@ -47,7 +47,7 @@
       <div class="details-card-dates">
         <span class="timeline-card-year">{start.year}</span>{start.month} |
         {#if end.isPresent}
-          <b>{$_(commonLabels.present)}</b>
+          <b>Present</b>
         {:else}
           <span class="timeline-card-year">{end.year}</span>{end.month}
         {/if}

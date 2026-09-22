@@ -91,6 +91,14 @@
     cursor: pointer;
   }
 
+  .select-language:focus {
+    outline: none;
+  }
+
+  .select-language:focus-visible {
+    text-decoration: underline;
+  }
+
   .history-footer.history-hover { padding-right: var(--history-hover-swing); }
   .history-footer-heading { position: absolute; top: -16px; right: 0; width: calc(50% - 10px); z-index: 1; flex: none; justify-content: center; }
   .history-footer-heading { min-width: 0; display: flex; align-items: center; gap: 2px; font-size: .9375rem; font-weight: 300; }

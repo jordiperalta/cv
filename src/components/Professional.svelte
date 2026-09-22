@@ -46,7 +46,7 @@
                     <span class="syntax-operator">=</span>
                     <span class="syntax-type-parameter">Date</span>
                     <span class="syntax-punctuation syntax-bracket">|</span>
-                    <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(commonLabels.present)}</span><span class="syntax-quote">'</span><span class="syntax-punctuation syntax-structure">;</span>
+                    <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span><span class="syntax-punctuation syntax-structure">;</span>
                 </span>
                 <br/>
                 <span class="declaration">
@@ -122,13 +122,13 @@
                     <br />
                     period:
                     {#if isPresent(experience.periods[0].startDate)}
-                        <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(commonLabels.present)}</span><span class="syntax-quote">'</span>
+                        <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
                     {:else}
                         <span class="syntax-type-parameter">[</span><span class="syntax-keyword">new</span>
                         <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{dateToDisplay(experience.periods[0].startDate)}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
                     {/if},
                     {#if isPresent(experience.periods[0].endDate)}
-                        <span class="syntax-quote">'</span><span class="syntax-string-content">{$_(commonLabels.present)}</span><span class="syntax-quote">'</span>
+                        <span class="syntax-quote">'</span><span class="syntax-string-content">Present</span><span class="syntax-quote">'</span>
                     {:else}
                         <span class="syntax-keyword">new</span>
                         <span class="syntax-constant">Date</span><span class="syntax-constant">(</span><span class="syntax-quote">'</span><span class="syntax-string-content">{dateToDisplay(experience.periods[0].endDate)}</span><span class="syntax-quote">'</span><span class="syntax-constant">)</span>
@@ -191,7 +191,7 @@
         font-weight: 400;
         height: 842px;
         margin: 0;
-        padding: 12px 16px;
+        padding: 12px 3ch;
         user-select: none;
         overflow: hidden;
         border-radius: 16px;
@@ -241,7 +241,7 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        right: 12ch;
+        left: 72ch;
         border-left: 1px solid #485e883f;
         pointer-events: none;
         transition: border-color 350ms ease;
@@ -299,7 +299,7 @@
     }
 
     .syntax-type-parameter {
-        color: #50a14f;
+        color: #1d895f;
     }
 
     .syntax-operator,
@@ -321,7 +321,7 @@
     }
 
     .indentation {
-        padding-left: 16px;
+        padding-left: 2ch;
     }
 
     .indentation .syntax-string-content {
@@ -331,7 +331,11 @@
     .professional-code-focus .syntax-operator,
     .professional-code-focus .syntax-punctuation,
     .professional-code-focus .syntax-string-content,
-    .professional-code-focus .syntax-quote {
+    .professional-code-focus .syntax-quote,
+    .professional-code-focus .syntax-constant,
+    .professional-code-focus .syntax-keyword,
+    .professional-code-focus .syntax-type,
+    .professional-code-focus .syntax-type-parameter {
         transition: color 350ms ease;
     }
 
@@ -349,8 +353,20 @@
         color: #93c5fd;
     }
 
+    .professional-code-focus:hover .syntax-constant {
+        color: #4e86fe;
+    }
+
     .professional-code-focus:hover .syntax-keyword {
-        color: #d657d4;
+        color: #de68dc;
+    }
+
+    .professional-code-focus:hover .syntax-type {
+        color: #d6a439;
+    }
+
+    .professional-code-focus:hover .syntax-type-parameter {
+        color: #3bba89;
     }
 
     .professional-code-focus :global(a) {
@@ -394,6 +410,10 @@
 
         .summary {
             padding-left: 2ch;
+        }
+
+        .professional-code-focus::before {
+            left: calc(100% - 10ch);
         }
     }
 </style>
