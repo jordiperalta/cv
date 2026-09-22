@@ -5,42 +5,37 @@
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawk.ttf") format("truetype");
+  src: url("../fonts/selawk.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawkb.ttf") format("truetype");
+  src: url("../fonts/selawkb.ttf") format("truetype");
   font-style: normal;
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawkl.ttf") format("truetype");
+  src: url("../fonts/selawkl.ttf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawksb.ttf") format("truetype");
+  src: url("../fonts/selawksb.ttf") format("truetype");
   font-style: normal;
   font-weight: 600;
 }
 
 @font-face {
   font-family: "Selawik";
-  src: url("fonts/selawksl.ttf") format("truetype");
+  src: url("../fonts/selawksl.ttf") format("truetype");
   font-style: normal;
   font-weight: 350;
-}
-
-:root {
-  --history-hover-swing: 8px;
-  --history-header-padding-h: 6px;
 }
 
 * {
@@ -67,55 +62,35 @@ body {
   cursor: default;
 }
 
-.header {
-  flex: 0 0 12.5%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: #ffffff;
-  background-image: linear-gradient(125deg, #485e88 0%, #485e88 7.5%, #6e7fa1 20%,#ffffff 45%);
+.professional {
+  margin: 4.35rem .5rem 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
 }
 
-.header p {
-  margin: 0;
-  padding: .5rem .75rem;
-  line-height: 1.125;
-  font-size: 3.25rem;
-  font-weight: 300;
-}
-
-.contact {
-  position: absolute;
-  top: 150px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.location {
-  position: absolute;
-  top: 20px;
-  right: 145px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+.professional > div:first-child {
+  color: #fff;
+  background: linear-gradient(90deg, #08714f 0%, #47b481 86%, #fff 97.5%);
+  width: 295px;
+  padding: 5px 0 7px 8px;
 }
 
 .contact > div,
-.location > div {
+.location > div,
+.info-label {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .contact-icon {
-  flex: 0 0 26px;
-  height: 26px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #485e88;
-  font-size: 1rem;
+  color: #666;
+}
+
+.info-label > span {
+  font-weight: 350;
+  color: #555;
+  padding: 0 2px 1px;
 }
 
 .whatsapp-icon {
@@ -134,38 +109,29 @@ body {
 
 .contact > div > span {
   padding-right: 4px;
-  padding-top: 1px;
+  padding-top: 0;
 }
 
-.contact > div > span > a {
+.contact > div > span > a,
+.contact > div > span > .contact-link {
+  font-size: .8175rem;
+  color: #555;
+  text-decoration: none;
+  transition: color 250ms, text-shadow 250ms;
+}
+
+.contact > div > i {
+  transition: color 250ms;
+}
+
+.contact > div:hover > span > a,
+.contact > div:hover > span > .contact-link {
   color: #485e88;
-  text-decoration: none;
+  text-shadow: #485e88 0 0 1px;
 }
 
-.location > div > span {
-  line-height: 1.1;
-  color: #cc1931;
-  text-decoration: none;
-  text-align: right;
-}
-
-.location .contact-icon {
-  flex: 0 0 32px;
-  height: 28px;
-  width: 28px;
-  margin: 4px;
-  color: #cc1931;
-}
-
-.header .qr-code {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  img {
-    height: 125px;
-    width: 125px;
-    margin: 5px;
-  }
+.contact > div:hover > i {
+  color: #485e88;
 }
 
 .content {
@@ -173,140 +139,6 @@ body {
   min-height: 0;
   display: flex;
   flex-direction: row;
-}
-
-.history {
-  flex: 0 0 35%;
-  height: 100%;
-  min-height: 0;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  background-image: linear-gradient(to bottom, #b8c0d1, #fcfdfe);
-  transition: flex-basis 350ms ease, margin-right 350ms ease, padding-left 350ms ease;
-}
-
-.history.history-hover {
-  flex-basis: calc(
-    35% + var(--history-hover-swing) + var(--history-hover-swing)
-  );
-  margin-right: calc(
-    0px - var(--history-hover-swing) - var(--history-hover-swing)
-  );
-  z-index: 3;
-}
-
-.history-header {
-  flex: 0 0 32px;
-  display: flex;
-  padding: 0 var(--history-header-padding-h, 6px);
-  background-color: #ffffffef;
-  :nth-child(1) {
-    justify-content: start;
-  }
-  :nth-child(2) {
-    justify-content: end;
-  }
-}
-
-.history-header-section {
-  flex: 1 1 50%;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 1rem;
-  font-weight: 300;
-}
-
-.history-header-section span {
-  padding: 0 2px;
-}
-
-.history-header-section svg {
-  color: #485e88;
-  width: 16px;
-  height: 16px;
-  stroke-width: 1.75;
-  .header-education {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-.history-header-section.header-education svg {
-  width: 19px;
-  height: 19px;
-}
-
-.history-main {
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-}
-
-.history-footer {
-  flex: 0 0 120px;
-}
-
-.history-hover .history-header {
-  padding: 0 calc(var(--history-header-padding-h, 6px) + var(--history-hover-swing));
-}
-
-.history-hover .history-main {
-  padding: 0 var(--history-hover-swing);
-}
-
-.history-header, .history-main {
-  transition: padding 350ms ease;
-}
-
-.history-main-left {
-  flex: 1 1 0;
-  min-width: 0;
-  height: 100%;
-  position: relative;
-}
-
-.history-main-right {
-  flex: 1 1 0;
-  min-width: 0;
-  height: 100%;
-  position: relative;
-}
-
-.history-main-centre {
-  margin: 0;
-  flex: 0 0 16px;
-  min-width: 0;
-  height: 100% - 4px;
-  background-image: linear-gradient(#56698FFF 92%, #56698F00 100%);
-  background-clip: padding-box;
-  border: 1px solid #e5e7eb7f;
-  display: flex;
-  flex-direction: column;
-}
-
-.history-divider {
-  flex: var(--divider-weight, 1) 1 0;
-  min-height: 0;
-  border-bottom: 1px solid #e5e7eb7f;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: .25rem;
-}
-
-.history-divider:first-child {
-  min-height: 30px;
-}
-
-.history-divider-year {
-  width: 100%;
-  text-align: center;
-  transform: rotate(-90deg);
-  font-size: 0.625rem;
-  color: #e3e6ee;
 }
 
 .experience {
@@ -346,6 +178,7 @@ body {
   border: 1px solid #b1bde2;
   border-radius: 4px;
   overflow: hidden;
+  user-select: none;
   background-color: #ffffffe0;
   font-size: 0.75rem;
   transition: background-color 350ms ease, box-shadow 350ms ease;
@@ -365,7 +198,7 @@ body {
 }
 
 .details-card.non-active {
-  background-color: #ffffff5f;
+  background-color: #eff1f7;
 }
 
 .details-card-accent {
@@ -430,6 +263,7 @@ body {
 
 .timeline-card-title {
   font-weight: 300;
+  line-height: 1.15;
 }
 
 .experience-period,
@@ -449,7 +283,7 @@ body {
 .education-period.active,
 .experience-period.active {
   opacity: 1;
-  box-shadow: 0 0 1px 1px #ffffff;
+  box-shadow: 0 0 1px 1px #e4e6ec;
 }
 
 .education-period.non-active,
@@ -473,9 +307,89 @@ body {
   font: inherit;
 }
 
-@media screen and (max-width: 559px) {
+.wheel {
+  position: absolute;
+  top: 105px;
+  left: 435px;
+  width: 0;
+  height: 0;
+}
+
+.wheel-profile-frame {
+  /* width: 125px;
+  height: 125px; */
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wheel-profile {
+  display: block;
+  /* width: 125px;
+  height: 125px; */
+  image-rendering: pixelated;
+}
+
+.wheel-arch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.wheel-radius {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.document-line-layer {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.document-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+
+@media screen and (max-width: 600px) {
   main.document {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
     margin: 0;
+  }
+
+  .header {
+    flex: 0 0 100px;
+  }
+
+  .wheel {
+    display: none;
+  }
+
+  .content {
+    flex: none;
+    flex-direction: column;
+  }
+
+  main.document .professional-code-stack {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  main.document .professional code {
+    height: auto;
   }
 
   button.print-button {

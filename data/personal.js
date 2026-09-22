@@ -1,4 +1,4 @@
-const personalData = {
+export const personalData = {
   firstName: 'Jordi',
   lastName: 'Peralta',
   location: {

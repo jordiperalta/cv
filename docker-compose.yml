@@ -1,0 +1,30 @@
+services:
+
+  dev:
+    container_name: cv-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - "5176:5173"
+    environment:
+      VITE_CACHE_DIR: /tmp/vite
+    volumes:
+      - .:/app
+      - dependencies:/node_modules
+
+  bundle:
+    container_name: cv-bundle
+    profiles:
+      - build
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: quay.io/jordiperalta/cv:${IMAGE_VERSION:-latest}
+    ports:
+      - "8173:80"
+    volumes:
+      - ./dist:/output
+
+volumes:
+  dependencies:
