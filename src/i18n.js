@@ -2,6 +2,7 @@ import { addMessages, getLocaleFromNavigator, init, locale } from 'svelte-i18n';
 import { messages, supportedLocales } from '../data/i18n.js';
 
 import '../data/about.js';
+import '../data/classic.js';
 import '../data/common.js';
 import '../data/education.js';
 import '../data/experience.js';

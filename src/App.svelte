@@ -9,9 +9,13 @@
   import Life from './components/Life.svelte';
   import Location from './components/Location.svelte';
   import Main from './components/Main.svelte';
+  import Classic from './components/Classic.svelte';
   import Wheel from './components/Wheel.svelte';
 </script>
 
+{#if window.location.pathname.replace(/\/$/, '') === '/classic'}
+  <Classic />
+{:else}
 <Document>
   <Header />
   <Content>
@@ -26,6 +30,10 @@
 
 </Document>
 
-<button class="print-button" type="button" onclick={() => window.print()}>
-  {$_(commonLabels.saveAsPdf)}
-</button>
+<div class="interactive-actions">
+  <a class="interactive-classic-link" href="/classic">Classic CV</a>
+  <button class="interactive-print-button" type="button" onclick={() => window.print()}>
+    {$_(commonLabels.saveAsPdf)}
+  </button>
+</div>
+{/if}

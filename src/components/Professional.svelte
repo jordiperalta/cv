@@ -315,6 +315,10 @@
         color: #284b71;
     }
 
+    .professional-code-focus:not(:hover) .syntax-quote {
+        color: #000;
+    }
+
     .summary .syntax-quote {
         font-weight: 700;
         color: #1f4b7a;
@@ -348,9 +352,12 @@
         color: #d1d5db;
     }
 
-    .professional-code-focus:hover .syntax-string-content,
-    .professional-code-focus:hover .summary .syntax-quote {
+    .professional-code-focus:hover .syntax-string-content {
         color: #93c5fd;
+    }
+
+    .professional-code-focus:hover .syntax-quote {
+        color: #fff;
     }
 
     .professional-code-focus:hover .syntax-constant {

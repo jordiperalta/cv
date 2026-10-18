@@ -3,6 +3,27 @@
   margin: .5mm;
 }
 
+@page classic {
+  size: A4 portrait;
+  margin: 12mm .5mm 10mm;
+
+  @bottom-center {
+    content: "Jordi Peralta · jordiperalta-cv.netlify.app";
+    color: #8b96a6;
+    font-family: "Selawik", "Segoe UI", Arial, sans-serif;
+    font-size: 8pt;
+  }
+}
+
+@page classic:first {
+  size: A4 portrait;
+  margin: .5mm;
+
+  @bottom-center {
+    content: none;
+  }
+}
+
 @font-face {
   font-family: "Selawik";
   src: url("../fonts/selawk.ttf") format("truetype");
@@ -295,16 +316,36 @@ body {
   left: -2px;
 }
 
-.print-button {
-  display: block;
-  margin: 0 auto 12mm;
+.interactive-actions {
+  position: fixed;
+  z-index: 1000;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.interactive-print-button,
+.interactive-classic-link {
   padding: 0.7rem 1rem;
-  border: 0;
   border-radius: 0.25rem;
-  background: #1d4ed8;
   color: #ffffff;
-  cursor: pointer;
   font: inherit;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #0002;
+}
+
+.interactive-print-button {
+  border: 0;
+  background: #1d4ed8;
+  cursor: pointer;
+}
+
+.interactive-classic-link {
+  background: #438b70;
+  font-size: .9rem;
 }
 
 .wheel {
@@ -392,8 +433,9 @@ body {
     height: auto;
   }
 
-  button.print-button {
-    display: none;
+  .interactive-actions {
+    right: 10px;
+    bottom: 10px;
   }
 }
 
@@ -410,7 +452,7 @@ body {
     box-shadow: none;
   }
 
-  .print-button {
+  .interactive-actions {
     display: none;
   }
 }

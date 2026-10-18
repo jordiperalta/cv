@@ -60,7 +60,9 @@ const experienceRecords = [
       { startDate: '2013-07-10', endDate: '2013-11-03' },
     ],
     mainTasks: [
-      'Assisted in the development of client websites using HTML, CSS, and JavaScript.',
+      'Ramp Coordinator at Barcelona Airport. Responsibilities include coordinating catering, maintenance, cleaning, refueling, boarding, and passenger assistance (PRM) services.',
+      'Subministrament a la tripulació de meteorologia, plans de vol, i fulles de càrrega. Supervisió de càrrega d’equipatge i mercaderia. Posada en marxa d’aeronaus (push-back).',
+      'Experiència en escales amb més de 20 companyies com Air Berlin, American Airlines, Brussels Airlines, Czech Airlines, TAP Portugal, Norwegian Air Shuttle, Orenair, Pegasus Airlines, SAS Scandinavian Airlines, Swiss International Airlines, Transavia, Transaero, etc.',
     ],
   },
   {
@@ -82,7 +84,8 @@ const experienceRecords = [
       { startDate: '2011-10-15', endDate: '2012-04-15' },
     ],
     mainTasks: [
-      'Assisted in the development of client websites using HTML, CSS, and JavaScript.',
+      'Application development for G5 servo control and Trajexia motion control.',
+      'E-learning course design for MX-2 frequency controllers.',
     ],
   },
 ];
