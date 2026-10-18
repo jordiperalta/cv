@@ -6,6 +6,8 @@ export const commonLabels = {
   educationCourses: localized('common.educationCourses', { en: 'Education & Courses', es: 'Formación y cursos', ca: 'Formació i cursos' }),
   contactInfo: localized('common.contactInfo', { en: 'Contact Info', es: 'Info. contacto', ca: 'Info. contacte' }),
   saveAsPdf: localized('common.saveAsPdf', { en: 'Save as PDF', es: 'Guardar como PDF', ca: 'Desar com a PDF' }),
+  externalLinkTitle: localized('common.externalLinkTitle', { en: 'Leaving this CV', es: 'Vas a salir de este CV', ca: 'Sortiràs d’aquest CV' }),
+  externalLinkMessage: localized('common.externalLinkMessage', { en: 'This link will take you to an external page. Select the URL to continue:', es: 'Este enlace te llevará a una página externa. Selecciona la URL para continuar:', ca: 'Aquest enllaç et portarà a una pàgina externa. Selecciona l’URL per continuar:' }),
   present: localized('common.present', { en: 'Present', es: 'Actualidad', ca: 'Actualitat' }),
   closeDialog: localized('common.closeDialog', { en: 'Close dialog', es: 'Cerrar diálogo', ca: 'Tancar el diàleg' }),
   copyCommand: localized('common.copyCommand', { en: 'Copy command', es: 'Copiar comando', ca: 'Copiar ordre' }),

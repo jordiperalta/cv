@@ -10,6 +10,7 @@
   import Location from './components/Location.svelte';
   import Main from './components/Main.svelte';
   import Classic from './components/Classic.svelte';
+  import ExternalLinkWarning from './components/ExternalLinkWarning.svelte';
   import Wheel from './components/Wheel.svelte';
 </script>
 
@@ -37,3 +38,4 @@
   </button>
 </div>
 {/if}
+<ExternalLinkWarning />
