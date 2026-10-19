@@ -348,6 +348,16 @@ body {
   font-size: .9rem;
 }
 
+@media screen and (max-width: 1024px) {
+  .interactive-actions {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 16px;
+  }
+}
+
 .wheel {
   position: absolute;
   top: 105px;
@@ -433,10 +443,6 @@ body {
     height: auto;
   }
 
-  .interactive-actions {
-    right: 10px;
-    bottom: 10px;
-  }
 }
 
 @media print {

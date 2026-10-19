@@ -11,6 +11,12 @@ npm install
 npm run dev
 ```
 
+If you want to run with docker: 
+
+```sh
+docker compose up dev
+```
+
 Vite prints the local URL in the terminal.
 
 ## Production build
@@ -21,16 +27,27 @@ Create an optimized bundle in `dist/`:
 npm run build
 ```
 
+In the docker container running you can also do it with: 
+
+```sh
+docker exec -t cv-dev npm run build
+```
+
 ## Preview the production build
 
 Serve the generated `dist/` bundle locally:
 
 ```sh
-npm run build
 npm run preview
 ```
 
 Vite prints the preview URL in the terminal.
+
+With docker you can run the **Nginx** container:
+
+```sh
+docker compose up bundle
+```
 
 ## Publish the image version
 
