@@ -356,6 +356,22 @@ body {
     align-items: center;
     margin: 0 auto 16px;
   }
+
+  .interactive-print-button {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .interactive-actions {
+    width: 210mm;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .interactive-actions {
+    margin-top: 16px;
+  }
 }
 
 .wheel {
@@ -412,6 +428,10 @@ body {
 
 
 @media screen and (max-width: 600px) {
+  .document {
+    box-shadow: #999 0 0 12px;
+  }
+
   main.document {
     width: 100%;
     height: auto;

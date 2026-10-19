@@ -3,6 +3,7 @@
   import { commonLabels } from '../../data/common.js';
   export let open = false;
   export let title = '';
+  export let wide = false;
 
   let dialog;
 
@@ -31,6 +32,7 @@
 
 <dialog
   bind:this={dialog}
+  class:wide
   aria-labelledby="modal-title"
   onclose={handleClose}
   onclick={handleClick}
@@ -55,6 +57,25 @@
     color: #1a1a1a;
     background: #fff;
     box-shadow: 0 12px 32px #1e293b5f;
+  }
+
+  dialog.wide {
+    width: min(calc(210mm + 24px), calc(100vw - 2rem));
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    font-size: .9rem;
+  }
+
+  dialog.wide h2 {
+    font-size: 1rem;
+  }
+
+  dialog.wide #modal-title {
+    font-weight: 800;
+  }
+
+  dialog.wide .close-button {
+    font-size: 1.3rem;
   }
 
   dialog::backdrop {

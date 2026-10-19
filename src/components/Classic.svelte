@@ -12,7 +12,8 @@
   import { commonLabels } from '../../data/common.js';
   import DOMPurify from 'dompurify';
   import { marked } from 'marked';
-  import profilePhoto from '../../assets/profile.jpg';
+  // import profilePhoto from '../../assets/profile.jpg';
+  import profilePhoto from '../../assets/composite.png';
 
   const avatarSize = 104;
   const avatarResolution = 24;
@@ -101,14 +102,14 @@
 
   <article class="classic-sheet">
     <header class="classic-header">
-      <canvas
-        bind:this={avatarCanvas}
-        class="classic-avatar"
-        width={avatarSize}
-        height={avatarSize}
-        role="img"
-        aria-label="Jordi Peralta"
-      ></canvas>
+      <div class="classic-avatar" role="img" aria-label="Jordi Peralta">
+        <canvas
+          bind:this={avatarCanvas}
+          width={avatarSize}
+          height={avatarSize}
+          aria-hidden="true"
+        ></canvas>
+      </div>
       <div class="identity">
         <p class="eyebrow">Full-stack software developer</p>
         <h1>{personalData.firstName} {personalData.lastName}</h1>
@@ -198,7 +199,8 @@
   .nav-actions button { cursor: pointer; }
   .classic-sheet { max-width: 1040px; margin: 0 auto; padding: 48px 56px 28px; background: #fff; box-shadow: 0 12px 48px #15243b1a; border-top: 5px solid #438b70; }
   .classic-header { display: grid; grid-template-columns: 104px 1fr auto; gap: 25px; align-items: center; padding-bottom: 26px; border-bottom: 1px solid #e5e9ef; }
-  .classic-avatar { width: 104px; height: 104px; border-radius: 50%; image-rendering: pixelated; }
+  .classic-avatar { width: 104px; height: 104px; border-radius: 50%; overflow: hidden; }
+  .classic-avatar canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
   .identity .eyebrow { margin: 0 0 5px; color: #438b70; text-transform: uppercase; letter-spacing: .13em; font-size: .68rem; font-weight: 700; }
   h1 { margin: 0; font-size: 2.2rem; line-height: 1.12; color: #182438; }
   .headline { margin: 7px 0 3px; font-size: 1rem; font-weight: 600; }
@@ -237,6 +239,9 @@
   footer { margin-top: 16px; padding-top: 14px; border-top: 1px solid #e5e9ef; color: #8b96a6; font-size: .68rem; text-align: right; }
   footer span { padding: 0 4px; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  @media screen and (max-width: 1024px) {
+    .nav-actions button { display: none; }
+  }
   @media (max-width: 720px) {
     .classic-page { padding: 14px 10px 28px; }
     .classic-sheet { padding: 28px 24px 22px; }

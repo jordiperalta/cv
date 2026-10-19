@@ -1,4 +1,6 @@
 <script>
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
   import LifeHeader from './LifeHeader.svelte';
   import LifeNav from './LifeNav.svelte';
   import Language from './Language.svelte';
@@ -19,6 +21,8 @@
 <div
     class:history-hover={historyHover}
     class="history"
+    role="region"
+    aria-label={$_(commonLabels.careerTimeline)}
     onmouseenter={handleHistoryMouseEnter}
     onmouseleave={handleHistoryMouseLeave}
 >

@@ -13,7 +13,7 @@
     if (!(event.target instanceof Element)) return;
 
     const link = event.target.closest('a[href]');
-    if (!link || link.closest('.contact, .contact-list, .header, dialog')) return;
+    if (!link || link.closest('.contact, .contact-list, .header, .external-link-warning')) return;
 
     let url;
     try {

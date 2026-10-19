@@ -1,5 +1,7 @@
 <script>
   import { onMount, tick } from 'svelte';
+  import { _ } from 'svelte-i18n';
+  import { commonLabels } from '../../data/common.js';
   import { educationData } from '../../data/education.js';
   import { experienceData } from '../../data/experience.js';
   import EducationColumn from './EducationColumn.svelte';
@@ -23,6 +25,8 @@
   let dividerElements = [];
   let experiencePeriods = [];
   let educationPeriods = [];
+  let historyMain;
+  let touchSelectionKey = null;
   export let historyHover = false;
 
   function createRainbowColors(count) {
@@ -193,6 +197,62 @@
     return year ? Number(year) : null;
   }
 
+  function touchSelectionFromTarget(target) {
+    if (!(target instanceof Element)) return null;
+
+    const educationCard = target.closest('.education-details .details-card');
+    if (educationCard) {
+      return {
+        key: educationCard.dataset.recordId,
+        element: educationCard,
+        recordId: educationCard.dataset.recordId,
+      };
+    }
+
+    const divider = target.closest('.history-divider');
+    if (divider) {
+      const year = Number(divider.dataset.year);
+      return { key: `year-${year}`, element: divider, year };
+    }
+
+    return null;
+  }
+
+  function handleTouchSelection(event) {
+    if (!window.matchMedia('(max-width: 1023px)').matches) return;
+
+    const selection = touchSelectionFromTarget(event.target);
+    if (!selection) {
+      touchSelectionKey = null;
+      return;
+    }
+
+    if (touchSelectionKey === selection.key) {
+      touchSelectionKey = null;
+      selection.element.blur();
+      resetActiveRecord();
+      return;
+    }
+
+    touchSelectionKey = selection.key;
+    selection.element.focus();
+    if (selection.year !== undefined) {
+      activateYear(selection.year);
+    } else {
+      activateRecord(selection.recordId);
+    }
+  }
+
+  function handleTouchSelectionKeydown(event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+
+    const selection = touchSelectionFromTarget(event.target);
+    if (!selection) return;
+
+    event.preventDefault();
+    selection.element.click();
+  }
+
   function recordIdsForYear(year) {
     const yearStart = new Date(year, 0, 1);
     const nextYearStart = new Date(year + 1, 0, 1);
@@ -291,25 +351,70 @@
     } else if (nextYear !== null) {
       activateYear(nextYear);
     } else {
+      if (event.currentTarget.contains(document.activeElement)) return;
       resetActiveRecord();
     }
   }
 
-  onMount(async () => {
-    await document.fonts?.ready;
-    await updateTimelinePeriods();
-    window.lucide?.createIcons();
+  function handleRecordFocusIn(event) {
+    const recordId = recordIdFromTarget(event.target);
+    if (recordId) activateRecord(recordId);
 
+    const year = yearFromTarget(event.target);
+    if (year !== null) activateYear(year);
+  }
+
+  function handleRecordFocusOut(event) {
+    const nextSelection = touchSelectionFromTarget(event.relatedTarget);
+    if (touchSelectionKey && nextSelection?.key !== touchSelectionKey) {
+      touchSelectionKey = null;
+    }
+
+    const nextRecordId = recordIdFromTarget(event.relatedTarget);
+    const nextYear = yearFromTarget(event.relatedTarget);
+
+    if (nextRecordId) {
+      activateRecord(nextRecordId);
+    } else if (nextYear !== null) {
+      activateYear(nextYear);
+    } else {
+      resetActiveRecord();
+    }
+  }
+
+  onMount(() => {
+    historyMain?.addEventListener('click', handleTouchSelection);
+    historyMain?.addEventListener('keydown', handleTouchSelectionKeydown);
     window.addEventListener('resize', updateTimelinePeriods);
-    return () => window.removeEventListener('resize', updateTimelinePeriods);
+
+    let isMounted = true;
+    const initializeTimeline = async () => {
+      await document.fonts?.ready;
+      if (!isMounted) return;
+      await updateTimelinePeriods();
+      if (isMounted) window.lucide?.createIcons();
+    };
+    initializeTimeline();
+
+    return () => {
+      isMounted = false;
+      historyMain?.removeEventListener('click', handleTouchSelection);
+      historyMain?.removeEventListener('keydown', handleTouchSelectionKeydown);
+      window.removeEventListener('resize', updateTimelinePeriods);
+    };
   });
 </script>
 
 <div
+  bind:this={historyMain}
   class:history-hover={historyHover}
   class="history-main"
+  role="group"
+  aria-label={$_(commonLabels.experienceEducationTimeline)}
   onpointerover={handleRecordPointerOver}
   onpointerout={handleRecordPointerOut}
+  onfocusin={handleRecordFocusIn}
+  onfocusout={handleRecordFocusOut}
 >
   <ExperienceColumn
     bind:timelineElement={experienceTimeline}
@@ -324,6 +429,9 @@
         bind:this={dividerElements[index]}
         class={`history-divider history-${year}`}
         data-year={year}
+        role="button"
+        tabindex="0"
+        aria-label={`${year}`}
         style={`--divider-weight: ${weight}`}
       >
         <span class="history-divider-year">{year}</span>
@@ -373,6 +481,11 @@
     user-select: none;
     padding-bottom: .25rem;
     transition: border-color 350ms ease, opacity 350ms ease;
+  }
+
+  .history-divider:focus-visible {
+    outline: 2px solid #485e88;
+    outline-offset: -2px;
   }
 
   .history-divider::before {

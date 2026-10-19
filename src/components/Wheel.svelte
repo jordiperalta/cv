@@ -4,7 +4,8 @@
   import WheelRadius from './WheelRadius.svelte';
   import WheelResolution from './WheelResolution.svelte';
   import DocumentLine from './DocumentLine.svelte';
-  import profileUrl from '../../assets/profile.jpg';
+  //import profilePhoto from '../../assets/profile.jpg';
+  import profilePhoto from '../../assets/composite.png';
   import { _ } from 'svelte-i18n';
   import { commonLabels } from '../../data/common.js';
 
@@ -56,7 +57,7 @@
 
     image.addEventListener('load', () => (profileImage = image));
 
-    image.src = profileUrl;
+    image.src = profilePhoto;
   });
 </script>
 

@@ -3,6 +3,8 @@ import { localized } from './i18n.js';
 export const commonLabels = {
   language: localized('common.language', { en: 'Language', es: 'Idioma', ca: 'Llengua' }),
   experience: localized('common.experience', { en: 'Experience', es: 'Experiencia', ca: 'Experiència' }),
+  careerTimeline: localized('common.careerTimeline', { en: 'Career timeline', es: 'Trayectoria profesional', ca: 'Trajectòria professional' }),
+  experienceEducationTimeline: localized('common.experienceEducationTimeline', { en: 'Experience, years, and education timeline', es: 'Línea temporal de experiencia, años y formación', ca: 'Línia temporal d’experiència, anys i formació' }),
   educationCourses: localized('common.educationCourses', { en: 'Education & Courses', es: 'Formación y cursos', ca: 'Formació i cursos' }),
   contactInfo: localized('common.contactInfo', { en: 'Contact Info', es: 'Info. contacto', ca: 'Info. contacte' }),
   saveAsPdf: localized('common.saveAsPdf', { en: 'Save as PDF', es: 'Guardar como PDF', ca: 'Desar com a PDF' }),

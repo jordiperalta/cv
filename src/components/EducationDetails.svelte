@@ -42,6 +42,9 @@
     <div
       class="details-card"
       data-record-id={recordId}
+      role="button"
+      tabindex="0"
+      aria-label={$_(record.title)}
     >
       <div class="details-card-accent" style={`--accent-color: ${color}`}></div>
       <div class="details-card-dates">
@@ -59,6 +62,11 @@
 </div>
 
 <style>
+  .details-card[role="button"]:focus-visible {
+    outline: 2px solid #485e88;
+    outline-offset: 2px;
+  }
+
   @media screen and (max-width: 600px) {
     .education-details .details-card.details-card {
       width: calc(100% - 7px);

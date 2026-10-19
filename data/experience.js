@@ -25,8 +25,8 @@ const experienceRecords = [
       { startDate: '2016-10-03', endDate: '2020-11-30' },
     ],
     mainTasks: [
-      'Provide **support to merchants** integrating **e-commerce** with the company payment gateway, including the development of scripts and plugins, and accessing to the client\'s back-office.',
-      'Development of backend applications for the in-house accounting department internal back-office.',
+      'Provide **support to merchants** integrating **e-commerce** with the company payment gateway, including the development of scripts and plugins in TypeScript/JavaScript, and accessing to the client\'s back-office.',
+      'Development of backend applications (PHP5.6 and PHP7.4) for the in-house accounting department internal back-office.',
     ],
   },
   {
@@ -49,7 +49,8 @@ const experienceRecords = [
       { startDate: '2015-01-03', endDate: '2015-02-28' },
     ],
     mainTasks: [
-      'Assisted in the development of client websites using HTML, CSS, and JavaScript.',
+      'Public works electrical installation engineering projects; on-site assembly and installation of electrical panels, PLC and SCADA programming, and budgeting for public works projects (TCQ software).',
+      'Experience working on projects for clients such as [Aeroports de Catalunya](https://aeroports.gencat.cat) (La Seu d’Urgell Airport), [ATLL Concessionària de la Generalitat S.A.](https://www.atl.cat), and the [Meteorological Service of Catalonia](https://www.meteo.cat).',
     ],
   },
   {
@@ -61,8 +62,8 @@ const experienceRecords = [
     ],
     mainTasks: [
       'Ramp Coordinator at Barcelona Airport. Responsibilities include coordinating catering, maintenance, cleaning, refueling, boarding, and passenger assistance (PRM) services.',
-      'Subministrament a la tripulació de meteorologia, plans de vol, i fulles de càrrega. Supervisió de càrrega d’equipatge i mercaderia. Posada en marxa d’aeronaus (push-back).',
-      'Experiència en escales amb més de 20 companyies com Air Berlin, American Airlines, Brussels Airlines, Czech Airlines, TAP Portugal, Norwegian Air Shuttle, Orenair, Pegasus Airlines, SAS Scandinavian Airlines, Swiss International Airlines, Transavia, Transaero, etc.',
+      'Provided flight crews with weather information, flight plans, and load sheets. Supervised baggage and cargo loading. Assisted with aircraft pushback.',
+      'Experience handling more than 20 airlines, including Air Berlin, American Airlines, Brussels Airlines, Czech Airlines, TAP Portugal, Norwegian Air Shuttle, Orenair, Pegasus Airlines, SAS Scandinavian Airlines, Swiss International Airlines, Transavia, Transaero, and others.',
     ],
   },
   {
@@ -73,7 +74,7 @@ const experienceRecords = [
       { startDate: '2013-05-02', endDate: '2013-06-30' },
     ],
     mainTasks: [
-      'Assisted in the development of client websites using HTML, CSS, and JavaScript.',
+      'Handling operator at Barcelona Airport: check-in, boarding, sales, airside coordination, and operations console.',
     ],
   },
   {
@@ -119,12 +120,12 @@ const experienceTaskTranslations = {
   },
   1: {
     0: {
-      es: 'Proporcionar **soporte a comercios** que integran **e-commerce** con la pasarela de pagos de la empresa, incluyendo el desarrollo de scripts y plugins y el acceso al back-office del cliente.',
-      ca: 'Donar **suport als comerços** que integren **e-commerce** amb la passarel·la de pagaments de l’empresa, incloent-hi el desenvolupament de scripts i plugins i l’accés al back-office del client.',
+      es: 'Proporcionar **soporte a comercios** que integran **e-commerce** con la pasarela de pagos de la empresa, incluyendo el desarrollo de scripts y plugins en TypeScript/JavaScript y el acceso al back-office del cliente.',
+      ca: 'Donar **suport als comerços** que integren **e-commerce** amb la passarel·la de pagaments de l’empresa, incloent-hi el desenvolupament de scripts i plugins amb TypeScript/JavaScript i l’accés al back-office del client.',
     },
     1: {
-      es: 'Desarrollo de aplicaciones backend para el back-office interno del departamento contable.',
-      ca: 'Desenvolupament d’aplicacions backend per al back-office intern del departament comptable.',
+      es: 'Desarrollo de aplicaciones backend (PHP 5.6 y PHP 7.4) para el back-office interno del departamento de contabilidad.',
+      ca: 'Desenvolupament d’aplicacions backend (PHP 5.6 i PHP 7.4) per al back-office intern del departament de comptabilitat.',
     },
   },
   2: {
@@ -135,26 +136,42 @@ const experienceTaskTranslations = {
   },
   3: {
     0: {
-      es: 'Colaboración en el desarrollo de sitios web para clientes utilizando HTML, CSS y JavaScript.',
-      ca: 'Col·laboració en el desenvolupament de llocs web per a clients utilitzant HTML, CSS i JavaScript.',
+      es: 'Proyectos de ingeniería de instalaciones eléctricas en obra pública, montaje e instalación en campo de cuadros eléctricos, programación de PLC y SCADA, y elaboración de presupuestos de proyectos de obra pública (software TCQ).',
+      ca: 'Projectes d’enginyeria d’instal·lacions elèctriques en obra pública, muntatge i instal·lació sobre el terreny de quadres elèctrics, programació de PLC i SCADA, i pressupostos de projectes d’obra pública (programari TCQ).',
+    },
+    1: {
+      es: 'Experiencia en proyectos para clientes como [Aeroports de Catalunya](https://aeroports.gencat.cat) (Aeropuerto de La Seu d’Urgell), [ATLL Concessionària de la Generalitat S.A.](https://www.atl.cat) y el [Servicio Meteorológico de Cataluña](https://www.meteo.cat).',
+      ca: 'Experiència en projectes per a clients com [Aeroports de Catalunya](https://aeroports.gencat.cat) (Aeroport de la Seu d’Urgell), [ATLL Concessionària de la Generalitat S.A.](https://www.atl.cat) i el [Servei Meteorològic de Catalunya](https://www.meteo.cat).',
     },
   },
   4: {
     0: {
-      es: 'Colaboración en el desarrollo de sitios web para clientes utilizando HTML, CSS y JavaScript.',
-      ca: 'Col·laboració en el desenvolupament de llocs web per a clients utilitzant HTML, CSS i JavaScript.',
+      es: 'Coordinador de rampa en el aeropuerto de Barcelona. Entre las responsabilidades se incluyen coordinar los servicios de catering, mantenimiento, limpieza, repostaje, embarque y asistencia a pasajeros con movilidad reducida (PMR).',
+      ca: 'Coordinador de rampa a l’aeroport de Barcelona. Les responsabilitats inclouen coordinar els serveis de càtering, manteniment, neteja, proveïment de combustible, embarcament i assistència a passatgers amb mobilitat reduïda (PMR).',
+    },
+    1: {
+      es: 'Suministro a la tripulación de información meteorológica, planes de vuelo y hojas de carga. Supervisión de la carga de equipaje y mercancías. Puesta en marcha de aeronaves (push-back).',
+      ca: 'Subministrament a la tripulació d’informació meteorològica, plans de vol i fulls de càrrega. Supervisió de la càrrega d’equipatge i mercaderies. Posada en marxa d’aeronaus (push-back).',
+    },
+    2: {
+      es: 'Experiencia en la atención en escala de más de 20 compañías, como Air Berlin, American Airlines, Brussels Airlines, Czech Airlines, TAP Portugal, Norwegian Air Shuttle, Orenair, Pegasus Airlines, SAS Scandinavian Airlines, Swiss International Air Lines, Transavia, Transaero, entre otras.',
+      ca: 'Experiència en l’atenció en escala de més de 20 companyies, com Air Berlin, American Airlines, Brussels Airlines, Czech Airlines, TAP Portugal, Norwegian Air Shuttle, Orenair, Pegasus Airlines, SAS Scandinavian Airlines, Swiss International Air Lines, Transavia, Transaero, entre d’altres.',
     },
   },
   5: {
     0: {
-      es: 'Colaboración en el desarrollo de sitios web para clientes utilizando HTML, CSS y JavaScript.',
-      ca: 'Col·laboració en el desenvolupament de llocs web per a clients utilitzant HTML, CSS i JavaScript.',
+      es: 'Operario de handling en el aeropuerto de Barcelona: facturación, embarque, ventas, coordinación en pista y consola de operaciones.',
+      ca: 'Operari de handling a l’aeroport de Barcelona: facturació, embarcament, vendes, coordinació en pista i consola d’operacions.',
     },
   },
   6: {
     0: {
-      es: 'Colaboración en el desarrollo de sitios web para clientes utilizando HTML, CSS y JavaScript.',
-      ca: 'Col·laboració en el desenvolupament de llocs web per a clients utilitzant HTML, CSS i JavaScript.',
+      es: 'Desarrollo de aplicaciones para el control de servos G5 y el control de movimiento Trajexia.',
+      ca: 'Desenvolupament d’aplicacions per al control de servos G5 i el control de moviment Trajexia.',
+    },
+    1: {
+      es: 'Diseño de cursos de formación en línea para variadores de frecuencia MX-2.',
+      ca: 'Disseny de cursos de formació en línia per als variadors de freqüència MX-2.',
     },
   },
 };
