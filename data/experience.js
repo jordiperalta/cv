@@ -10,8 +10,8 @@ const experienceRecords = [
     ],
     mainTasks: [
       'Development of a zero-footprint **Digital Pathology Viewer** compatible with **DICOMweb** and **FHIR**, developed in **JS/TS/React** for [CIMD](https://www.tauli.cat/es/udiat/cimd)/[IDI](https://idi.gencat.cat/). Public contract: [24SER0869](https://contractaciopublica.cat/portal-api/descarrega-document/300404382/5B53B246142DAC56C6450CAEA32A896A). ([+info](https://www.infoconcurso.com/2024/1830893-servicios-tic-proyectos-patologia-digital-24ser0869))',
-      'Development of the **Alma CLINIC** DICOMweb **Radiology Viewer** (ReactJS).',
-      'Development of the **Alma HEALTH** Healthcare platform: Backend **PHP Symfony/Doctrine ORM/Redis/API GraphQL**, Frontend **ReactJS/Material UI**, **OpenID** configuration and integration with **Keycloak** IdP and **DCM4CHEE** PACS.',
+      'Development of the **Alma CLINIC** zero-footprint Radiology Viewer. Frontend: **ReactJS**, **DICOMweb**, **WebGL**, authentication with **Open ID Connect** and **JOSE**.',
+      'Development of the **Alma HEALTH** Healthcare platform: Backend **PHP Symfony/Doctrine ORM/Redis/API GraphQL**, Frontend **ReactJS/Material UI**, **OpenID Connect** configuration and integration with **Keycloak** IdP and **DCM4CHEE** PACS.',
       'Software deployment with **Jenkins** in the **AWS** *cloud* environment (**EC2**, **Fargate**, **ECR**, **RDS**, **Beanstalk**) and *on-premise* with **Docker/Podman** on **Linux** distributions in hospital environments: [Aragon Salud](https://www.aragon.es/gobierno/salud), [Sergas](https://www.sergas.gal/), [Hospital Italiano](https://www.hospitalitaliano.org.ar), [Hospital de Granollers](https://alma-health.fphag.org/), [Clínica Olivé Gumà](https://www.clinicaoliveguma.es/), [Hospital Clínic](https://www.clinicbarcelona.org/), [Althaia](https://www.althaia.cat/)...',
       'Development and deployment of an **orchestration** service connected via **REST API** + **DIMSE** to the AI systems [Rayscape](https://rayscape.ai/) and [Cardiolyse](https://cardiolyse.com/) for the [ICS](https://ics.gencat.cat/) Rural Areas pilot project, integrated into the **Alma HEALTH** platform.',
       'Application maintenance and incident resolution in both *cloud* and *on-premise* environments.'
@@ -98,8 +98,8 @@ const experienceTaskTranslations = {
       ca: 'Projecte de **Visor d\'Anatomia Patològica** zero-footprint compatible amb **DICOMweb** i **FHIR**, desenvolupat en **JS/TS/React** per a [CIMD](https://www.tauli.cat/es/udiat/cimd)/[IDI](https://idi.gencat.cat/). Contracte públic: [24SER0869](https://contractaciopublica.cat/portal-api/descarrega-document/300404382/5B53B246142DAC56C6450CAEA32A896A). ([+info](https://www.infoconcurso.com/2024/1830893-servicios-tic-proyectos-patologia-digital-24ser0869))',
     },
     1: {
-      es: 'Desarrollo del **Visor Radiológico** DICOMweb **Alma CLINIC** (ReactJS).',
-      ca: 'Desenvolupament del **Visor Radiològic** DICOMweb **Alma CLINIC** (ReactJS).',
+      es: 'Desarrollo del Visor Radiológico **Alma CLINIC** zero-footprint. Frontend: **ReactJS**, **DICOMweb**, **WebGL**, autenticación con **OpenID Connect** y **JOSE**.',
+      ca: 'Desenvolupament del Visor Radiològic **Alma CLINIC** zero-footprint. Frontend: **ReactJS**, **DICOMweb**, **WebGL**, autenticació amb **OpenID Connect** i **JOSE**.',
     },
     2: {
       es: 'Desarrollo de la plataforma Healthcare **Alma HEALTH**: Backend **PHP Symfony/Doctrine ORM/Redis/API GraphQL**, Frontend **ReactJS/Material UI**, configuración e integración **OpenID** con IdP **Keycloak** y PACS **DCM4CHEE**.',

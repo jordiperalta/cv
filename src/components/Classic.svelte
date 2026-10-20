@@ -120,7 +120,7 @@
         <p class="focus">{$_(aboutMe.subtitle)}</p>
       </div>
       <address class="contact-list">
-        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {personalData.location.city}, {personalData.location.country} {personalData.location.code}</span>
+        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {personalData.location.city}, {personalData.location.code} {personalData.location.country} </span>
         <a href={`mailto:${personalData.email}`}><i class="fa-solid fa-envelope" aria-hidden="true"></i> {personalData.email}</a>
         <a href={`https://${personalData.linkedin}`} target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> {personalData.linkedin}</a>
         <a class="website-link" href={`https://${personalData.website}`} target="_blank" rel="noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i> {personalData.website}</a>

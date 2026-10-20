@@ -189,6 +189,7 @@
         display: block;
         font-size: .7rem;
         font-weight: 400;
+        line-height: 1.175;
         height: 842px;
         margin: 0;
         padding: 12px 3ch;
