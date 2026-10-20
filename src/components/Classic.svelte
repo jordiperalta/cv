@@ -8,7 +8,9 @@
   import { experienceData } from '../../data/experience.js';
   import { educationData } from '../../data/education.js';
   import { languageData } from '../../data/language.js';
-  import { skillsData } from '../../data/skills.js';
+  import { skillCategoryDescriptions, skillsData } from '../../data/skills.js';
+  import { Tooltip as BitsTooltip } from 'bits-ui';
+  import Tooltip from './Tooltip.svelte';
   import { commonLabels } from '../../data/common.js';
   import DOMPurify from 'dompurify';
   import { marked } from 'marked';
@@ -17,6 +19,7 @@
 
   const avatarSize = 104;
   const avatarResolution = 24;
+  const currentYear = new Date().getFullYear();
   let avatarCanvas;
   const summary = aboutMe.summary;
 
@@ -120,7 +123,7 @@
         <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {personalData.location.city}, {personalData.location.country} {personalData.location.code}</span>
         <a href={`mailto:${personalData.email}`}><i class="fa-solid fa-envelope" aria-hidden="true"></i> {personalData.email}</a>
         <a href={`https://${personalData.linkedin}`} target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> {personalData.linkedin}</a>
-        <a href={`https://${personalData.website}`} target="_blank" rel="noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i> {personalData.website}</a>
+        <a class="website-link" href={`https://${personalData.website}`} target="_blank" rel="noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i> {personalData.website}</a>
         <a href={`https://${personalData.docker}`} target="_blank" rel="noreferrer"><i class="fa-brands fa-docker" aria-hidden="true"></i> {personalData.docker}</a>
       </address>
     </header>
@@ -164,7 +167,11 @@
         <section>
           <h2>{$_(classicLabels.skills)}</h2>
           <div class="skill-list">
-            {#each skillsData as skill}<span>{skill}</span>{/each}
+            <BitsTooltip.Provider delayDuration={200} disableHoverableContent={true} disableCloseOnTriggerClick={true}>
+              {#each Object.entries(skillsData) as [category, skills]}
+                {#each skills as skill}<Tooltip content={$_(skillCategoryDescriptions[category])}><span class={`skill-chip ${category}`}>{skill}</span></Tooltip>{/each}
+              {/each}
+            </BitsTooltip.Provider>
           </div>
         </section>
         <section>
@@ -186,7 +193,7 @@
       </aside>
     </div>
 
-    <footer>Jordi Peralta <span>·</span> {personalData.website}</footer>
+    <footer>Jordi Peralta — {currentYear}</footer>
   </article>
 </main>
 
@@ -213,7 +220,7 @@
   .summary-section h2 { margin-bottom: 8px; }
   .summary-section p { margin: 5px 0; color: #46546a; font-size: .85rem; line-height: 1.55; }
   .summary-section :global(strong), .entry :global(strong) { color: #26364e; }
-  .classic-columns { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(225px, .9fr); gap: 40px; padding-top: 24px; }
+  .classic-columns { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(225px, .8fr); gap: 40px; padding-top: 24px; }
   .experience-section > h2, .sidebar section > h2 { padding-bottom: 9px; border-bottom: 2px solid #e7eee9; }
   .entry { position: relative; padding: 0 0 18px 15px; border-left: 1px solid #dce5df; }
   .entry::before { content: ''; position: absolute; width: 7px; height: 7px; border-radius: 50%; left: -4px; top: 4px; background: #438b70; }
@@ -228,7 +235,17 @@
   .entry li :global(a) { color: #416e87; text-decoration: none; }
   .sidebar section { margin-bottom: 24px; }
   .skill-list { display: flex; gap: 6px; flex-wrap: wrap; }
-  .skill-list span { padding: 5px 8px; background: #f0f5f2; border: 1px solid #e1ebe5; border-radius: 4px; color: #3e5c4d; font-size: .7rem; }
+  .skill-list :global(.tooltip-trigger) { display: flex; }
+  .skill-chip { position: relative; overflow: hidden; padding: 5px 8px; background: #f0f5f2; border: 1px solid #e1ebe5; border-radius: 4px; color: #3e5c4d; font-size: .7rem; cursor: default; }
+  .skill-chip::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 0; border-bottom: 24px solid var(--skill-ribbon); border-left: 3.5px solid transparent; }
+  .skill-chip.frontend { --skill-ribbon: #3b82f6; }
+  .skill-chip.backend { --skill-ribbon: #8b5cf6; }
+  .skill-chip.databases { --skill-ribbon: #10b981; }
+  .skill-chip.devops { --skill-ribbon: #64748b; }
+  .skill-chip.apisAndStandards { --skill-ribbon: #06b6d4; }
+  .skill-chip.security { --skill-ribbon: #ef4444; }
+  .skill-chip.tools { --skill-ribbon: #f59e0b; }
+  .skill-chip.methodologies { --skill-ribbon: #d946ef; }
   .language-entry { display: grid; grid-template-columns: 1fr auto; gap: 3px 8px; padding: 0 0 11px; color: #3b4a60; font-size: .8rem; }
   .language-entry > span { color: #438b70; font-size: .75rem; font-weight: 700; }
   .language-entry small { grid-column: 1 / -1; color: #8490a1; font-size: .68rem; }
@@ -237,7 +254,6 @@
   .education-entry p { margin: 3px 0; color: #438b70; font-size: .73rem; }
   .education-entry small { color: #8490a1; font-size: .67rem; }
   footer { margin-top: 16px; padding-top: 14px; border-top: 1px solid #e5e9ef; color: #8b96a6; font-size: .68rem; text-align: right; }
-  footer span { padding: 0 4px; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   @media screen and (max-width: 1024px) {
     .nav-actions button { display: none; }
@@ -264,7 +280,7 @@
   @media print {
     .classic-page { padding: 0; background: #fff; }
     .classic-nav { display: none; }
-    .classic-sheet { max-width: none; page: classic; box-shadow: none; padding: 12mm 13mm 8mm; border-top-width: 3px; }
+    .classic-sheet { max-width: none; page: classic; box-shadow: none; padding: 12mm 11mm 5mm; border-top-width: 3px; }
     .entry::before { content: '●'; top: -1px; left: -4px; width: auto; height: auto; background: none; border: 0; color: #438b70; font-size: .75rem; line-height: 1; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     .entry, .education-entry { break-inside: avoid; }
     .sidebar section h2 { break-after: avoid; }

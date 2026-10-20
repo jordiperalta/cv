@@ -37,11 +37,11 @@ const experienceRecords = [
       { startDate: '2015-05-02', endDate: '2016-09-30' },
     ],
     mainTasks: [
-      'Assisted in the development of client websites using HTML, CSS, and JavaScript.',
+      'Development of e-commerce and commercial websites using HTML5, CSS3, JavaScript, PHP, MySQL, Nginx.',
     ],
   },
   {
-    title: 'Public works engineering. Draftsman. Automation Technician.',
+    title: 'Draftsman. Public works engineering. Automation Technician.',
     entity: 'Ingenieros Consultores Barenton',
     location: 'Barcelona, ES',
     periods: [
@@ -130,8 +130,8 @@ const experienceTaskTranslations = {
   },
   2: {
     0: {
-      es: 'Colaboración en el desarrollo de sitios web para clientes utilizando HTML, CSS y JavaScript.',
-      ca: 'Col·laboració en el desenvolupament de llocs web per a clients utilitzant HTML, CSS i JavaScript.',
+      es: 'Desarrollo de sitios de comercio electrónico y páginas web comerciales con HTML5, CSS3, JavaScript, PHP, MySQL y Nginx.',
+      ca: 'Desenvolupament de llocs web de comerç electrònic i webs comercials amb HTML5, CSS3, JavaScript, PHP, MySQL i Nginx.',
     },
   },
   3: {
@@ -176,9 +176,35 @@ const experienceTaskTranslations = {
   },
 };
 
+const experienceTitleTranslations = {
+  2: {
+    es: 'Desarrollador web',
+    ca: 'Desenvolupador web',
+  },
+  3: {
+    es: 'Delineante. Ingeniería de obra pública. Técnico de automatización.',
+    ca: 'Delineant. Enginyeria d’obra pública. Tècnic d’automatització.',
+  },
+  4: {
+    es: 'Despachador de vuelos (Aeropuerto de Barcelona).',
+    ca: 'Despatxador de vol (Aeroport de Barcelona).',
+  },
+  5: {
+    es: 'Operario de handling (Aeropuerto de Barcelona).',
+    ca: 'Operari de handling (Aeroport de Barcelona).',
+  },
+  6: {
+    es: 'Técnico de desarrollo de control de motores y servos.',
+    ca: 'Tècnic de desenvolupament de control de motors i servos.',
+  },
+};
+
 export const experienceData = experienceRecords.map((record, recordIndex) => ({
   ...record,
-  title: localized(`experience.${recordIndex}.title`, { en: record.title }),
+  title: localized(`experience.${recordIndex}.title`, {
+    en: record.title,
+    ...(experienceTitleTranslations[recordIndex] ?? {}),
+  }),
   entity: localized(`experience.${recordIndex}.entity`, { en: record.entity }),
   location: localized(`experience.${recordIndex}.location`, { en: record.location }),
   mainTasks: record.mainTasks.map((task, taskIndex) =>

@@ -7,6 +7,7 @@ import '../data/common.js';
 import '../data/education.js';
 import '../data/experience.js';
 import '../data/language.js';
+import '../data/skills.js';
 
 supportedLocales.forEach((language) => addMessages(language, messages[language]));
 
